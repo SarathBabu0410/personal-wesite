@@ -28,7 +28,6 @@
     "homepage": "https://SarathBabu0410.github.io/personal-website"
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
-
   },
   "eslintConfig": {
     "extends": [

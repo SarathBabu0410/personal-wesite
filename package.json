@@ -25,6 +25,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+    "homepage": "https://SarathBabu0410.github.io/personal-website"
+
   },
   "eslintConfig": {
     "extends": [

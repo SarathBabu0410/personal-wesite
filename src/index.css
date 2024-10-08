@@ -57,6 +57,8 @@ header, footer {
     right: 0; /* Align to the right */
     padding: 1rem 0; /* Padding for the menu */
     z-index: 10; /* Ensure it appears above other content */
+    border-radius: 0 0 5px 5px; /* Optional: add rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
   }
 
   /* Styling for individual menu items */

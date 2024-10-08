@@ -14,6 +14,16 @@ import Resume from './components/Resume';
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
+  flex-direction: row; /* Default to row for larger screens */
+  
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack vertically on smaller screens */
+  }
+`;
+
+const MainContent = styled.div`
+  flex: 1; /* Take up remaining space */
+  padding: 20px; /* Padding for main content area */
 `;
 
 function App() {
@@ -23,16 +33,17 @@ function App() {
         <Header />
         <Layout>
           <Sidebar />
-          <TitleUpdater /> {/* Component to handle title changes */}
-          <Routes>
-           <Route path="/" element={<NewsAndUpdates />} />
-           <Route path="/about" element={<About />} />
-           <Route path="/resume" element={<Resume />} />
-           <Route path="/publications" element={<Publications />} />
-           <Route path="/contact" element={<Contact />} />
-           <Route path="/about" element={<About />} />
-           <Route path="/outreach" element={<OutreachActivities />} />
-          </Routes>
+          <MainContent>
+            <TitleUpdater /> {/* Component to handle title changes */}
+            <Routes>
+              <Route path="/" element={<NewsAndUpdates />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/publications" element={<Publications />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/outreach" element={<OutreachActivities />} />
+            </Routes>
+          </MainContent>
         </Layout>
         <Footer />
       </div>

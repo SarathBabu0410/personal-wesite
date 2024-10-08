@@ -41,5 +41,16 @@ header, footer {
   p {
     font-size: 16px; /* Adjust paragraph text size to ensure readability */
   }
-}
+  
+  /* Additional styles for Header */
+  header {
+    display: flex; /* Use flexbox for header layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+  }
 
+  /* Additional styles for Footer */
+  footer {
+    text-align: center; /* Center the footer text */
+  }
+}

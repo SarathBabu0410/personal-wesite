@@ -5,9 +5,27 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding: 0 10px; /* Add horizontal padding */
+  box-sizing: border-box; /* Include padding in width calculation */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  body {
+    padding: 0 15px; /* Increase padding on smaller screens */
+  }
+
+  h1 {
+    font-size: 24px; /* Adjust heading size for mobile */
+  }
+
+  /* Example: Adjust paragraph text size */
+  p {
+    font-size: 16px; /* Ensure readability */
+  }
 }

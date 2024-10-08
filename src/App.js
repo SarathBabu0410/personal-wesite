@@ -1,55 +1,40 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Header from "./components/Header"; // Assuming you have a Header component
+import Header from "./components/Header";  // Importing Header component
+import Footer from "./components/Footer";  // Importing Footer component
 import Sidebar from "./components/Sidebar";
 import About from "./components/About";
 import Publications from "./components/Publications";
 import Contact from "./components/Contact";
 import OutreachActivities from './components/OutreachActivities';
-import Footer from "./components/Footer"; // Assuming you have a Footer component
-import styled from "styled-components";
 import NewsAndUpdates from './components/NewsAndUpdates';
 import Resume from './components/Resume';
+import styled from "styled-components";
 
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
-  flex-direction: row; /* Default to row for larger screens */
-  
-  @media (max-width: 768px) {
-    flex-direction: column; /* Stack vertically on smaller screens */
-  }
-`;
-
-const MainContent = styled.div`
-  flex: 1; /* Take up remaining space */
-  padding: 20px; /* Padding for main content area */
-  
-  @media (max-width: 768px) {
-    padding: 10px; /* Adjust padding for mobile */
-  }
 `;
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header /> {/* Using the Header component */}
         <Layout>
           <Sidebar />
-          <MainContent>
-            <TitleUpdater /> {/* Component to handle title changes */}
-            <Routes>
-              <Route path="/" element={<NewsAndUpdates />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/resume" element={<Resume />} />
-              <Route path="/publications" element={<Publications />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/outreach" element={<OutreachActivities />} />
-            </Routes>
-          </MainContent>
+          <TitleUpdater /> {/* Component to handle title changes */}
+          <Routes>
+            <Route path="/" element={<NewsAndUpdates />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/publications" element={<Publications />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/outreach" element={<OutreachActivities />} />
+          </Routes>
         </Layout>
-        <Footer />
+        <Footer /> {/* Using the Footer component */}
       </div>
     </Router>
   );

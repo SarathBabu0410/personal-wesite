@@ -1,65 +1,82 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Nav = styled.nav`
   display: flex;
-  flex-direction: column; /* Stack items vertically on smaller screens */
-  padding: 1rem 2rem;
+  flex-direction: column; /* Stack items vertically by default */
+  align-items: center; /* Center items */
   background-color: #333;
   color: white;
 
-  h1 {
-    margin: 0; /* Remove default margin */
-    font-size: 24px; /* Adjust the size as needed */
+  /* Styles for desktop view */
+  @media (min-width: 769px) {
+    flex-direction: row; /* Align items horizontally on larger screens */
+    justify-content: space-between; /* Space between logo and menu items */
   }
+`;
 
-  /* Navigation links container */
-  .nav-links {
-    display: flex;
-    flex-wrap: wrap; /* Allow links to wrap */
-    justify-content: center; /* Center the links */
-    margin-top: 1rem; /* Add some space between the title and links */
+const MenuToggle = styled.div`
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  /* Style for menu icon */
+  div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+`;
+
+const MenuItems = styled.div`
+  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
+  flex-direction: column; /* Stack menu items vertically */
+  align-items: center;
+  margin-top: 1rem;
+
+  /* Styles for desktop view */
+  @media (min-width: 769px) {
+    display: flex; /* Show menu items in a row on larger screens */
+    flex-direction: row; /* Align items horizontally */
+    margin-top: 0; /* Reset margin */
   }
 
   a {
     color: white;
     text-decoration: none;
-    margin: 0 1rem;
-    font-size: 16px; /* Base font size for links */
+    margin: 0.5rem 1rem; /* Spacing between menu items */
   }
 
   a:hover {
     color: #f39c12;
   }
-
-  @media (max-width: 768px) {
-    flex-direction: column; /* Stack the header vertically on mobile */
-    align-items: center; /* Center items horizontally */
-
-    h1 {
-      font-size: 20px; /* Reduce title font size on mobile */
-    }
-
-    a {
-      margin: 0.5rem 0; /* Adjust margin for links on mobile */
-      font-size: 14px; /* Reduce font size for links on mobile */
-    }
-  }
 `;
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false); // State to control menu visibility
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <Nav>
       <h1>Sarath Babu</h1>
-      <div className="nav-links">
+      <MenuToggle onClick={toggleMenu}>
+        <div />
+        <div />
+        <div />
+      </MenuToggle>
+      <MenuItems isOpen={isOpen}>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/resume">Resume</Link>
         <Link to="/publications">Publications</Link>
         <Link to="/outreach">Outreach</Link>
         <Link to="/contact">Contact</Link>
-      </div>
+      </MenuItems>
     </Nav>
   );
 }

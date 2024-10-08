@@ -2,63 +2,72 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+// Styling for the navigation bar
 const Nav = styled.nav`
   display: flex;
-  flex-direction: column; /* Stack items vertically by default */
-  align-items: center; /* Center items */
-  background-color: #333;
-  color: white;
-
-  /* Styles for desktop view */
-  @media (min-width: 769px) {
-    flex-direction: row; /* Align items horizontally on larger screens */
-    justify-content: space-between; /* Space between logo and menu items */
-  }
+  justify-content: space-between; /* Align items on the ends */
+  align-items: center; /* Center items vertically */
+  padding: 1rem 2rem; /* Top/bottom and left/right padding */
+  background-color: #333; /* Background color */
+  color: white; /* Text color */
+  position: relative; /* Relative positioning for the toggle button */
 `;
 
+// Styling for the menu toggle button
 const MenuToggle = styled.div`
-  display: flex;
-  flex-direction: column;
-  cursor: pointer;
-
-  /* Style for menu icon */
+  display: none; /* Hidden by default */
+  flex-direction: column; /* Stack the lines vertically */
+  cursor: pointer; /* Change cursor on hover */
+  
+  /* Hamburger lines styling */
   div {
     width: 25px;
     height: 3px;
     background-color: white;
-    margin: 4px 0;
+    margin: 4px 0; /* Space between lines */
+  }
+
+  /* Show the toggle on smaller screens */
+  @media (max-width: 768px) {
+    display: flex; /* Show the hamburger icon */
   }
 `;
 
+// Styling for the menu items
 const MenuItems = styled.div`
-  display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
-  flex-direction: column; /* Stack menu items vertically */
-  align-items: center;
-  margin-top: 1rem;
-
-  /* Styles for desktop view */
-  @media (min-width: 769px) {
-    display: flex; /* Show menu items in a row on larger screens */
-    flex-direction: row; /* Align items horizontally */
-    margin-top: 0; /* Reset margin */
-  }
-
+  display: flex; /* Flexbox for layout */
+  flex-direction: row; /* Align items in a row */
+  align-items: center; /* Center items vertically */
+  
+  /* Style for menu items */
   a {
     color: white;
     text-decoration: none;
-    margin: 0.5rem 1rem; /* Spacing between menu items */
+    margin: 0 1rem; /* Space between items */
   }
 
   a:hover {
-    color: #f39c12;
+    color: #f39c12; /* Color on hover */
+  }
+
+  /* Adjust menu items for smaller screens */
+  @media (max-width: 768px) {
+    position: absolute; /* Positioning for dropdown effect */
+    top: 60px; /* Position below the header */
+    right: 0; /* Align to the right */
+    background-color: #333; /* Same background color */
+    flex-direction: column; /* Stack vertically */
+    width: 100%; /* Full width on small screens */
+    padding: 1rem 0; /* Top and bottom padding */
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Show/hide based on state */
   }
 `;
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false); // State to control menu visibility
+  const [isOpen, setIsOpen] = useState(false); // State to manage menu visibility
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen(!isOpen); // Toggle menu visibility
   };
 
   return (
@@ -70,12 +79,12 @@ function Header() {
         <div />
       </MenuToggle>
       <MenuItems isOpen={isOpen}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/resume">Resume</Link>
-        <Link to="/publications">Publications</Link>
-        <Link to="/outreach">Outreach</Link>
-        <Link to="/contact">Contact</Link>
+        <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+        <Link to="/about" onClick={() => setIsOpen(false)}>About</Link>
+        <Link to="/resume" onClick={() => setIsOpen(false)}>Resume</Link>
+        <Link to="/publications" onClick={() => setIsOpen(false)}>Publications</Link>
+        <Link to="/outreach" onClick={() => setIsOpen(false)}>Outreach</Link>
+        <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
       </MenuItems>
     </Nav>
   );

@@ -6,6 +6,20 @@ const FooterContainer = styled.footer`
   background-color: #333;
   color: white;
   text-align: center;
+  box-sizing: border-box; /* Include padding in width calculation */
+
+  @media (max-width: 768px) {
+    padding: 0.5rem; /* Reduce padding on smaller screens */
+  }
+
+  p {
+    margin: 0; /* Remove default margin */
+    font-size: 14px; /* Set a base font size */
+    
+    @media (max-width: 768px) {
+      font-size: 12px; /* Reduce font size for mobile */
+    }
+  }
 `;
 
 function Footer() {

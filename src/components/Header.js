@@ -10,6 +10,8 @@ const Nav = styled.nav`
   padding: 1rem 2rem; /* Top/bottom and left/right padding */
   background-color: #333; /* Background color */
   color: white; /* Text color */
+  width: 100%; /* Ensure full width */
+  box-sizing: border-box; /* Include padding in width calculation */
   position: relative; /* Relative positioning for the toggle button */
 `;
 
@@ -54,12 +56,13 @@ const MenuItems = styled.div`
   @media (max-width: 768px) {
     position: absolute; /* Positioning for dropdown effect */
     top: 60px; /* Position below the header */
-    right: 0; /* Align to the right */
+    left: 0; /* Align to the left */
     background-color: #333; /* Same background color */
     flex-direction: column; /* Stack vertically */
     width: 100%; /* Full width on small screens */
     padding: 1rem 0; /* Top and bottom padding */
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Show/hide based on state */
+    z-index: 1000; /* Ensure dropdown appears above other content */
   }
 `;
 

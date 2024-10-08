@@ -10,11 +10,6 @@ body {
   box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
-/* Code Block Styling */
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-}
-
 /* Header and Footer Styling */
 header, footer {
   width: 100%;
@@ -47,6 +42,13 @@ header, footer {
     display: flex; /* Use flexbox for header layout */
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
+  }
+
+  /* Menu items for smaller screens */
+  .menuItems {
+    display: flex;
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: center;
   }
 
   /* Additional styles for Footer */

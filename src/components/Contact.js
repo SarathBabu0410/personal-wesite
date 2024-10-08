@@ -74,7 +74,7 @@ function Contact() {
         <p>
           <EmailLink href="mailto:sarathbabu0410@gmail.com">sarathbabu0410@gmail.com</EmailLink>
         </p>
-        <p>Phone: +91-7994117884</p>
+        
 
         {/* Social Media Icons */}
         <SocialMediaContainer>

@@ -48,25 +48,25 @@ function TitleUpdater() {
     // Update the document title based on the current path
     switch (location.pathname) {
       case "/":
-        document.title = "News and Updates - My Website";
+        document.title = "Sarath Babu";
         break;
       case "/about":
-        document.title = "About Me - My Website";
+        document.title = "About Me";
         break;
       case "/resume":
-        document.title = "Resume - My Website";
+        document.title = "Resume";
         break;
       case "/publications":
-        document.title = "Publications - My Website";
+        document.title = "Publications";
         break;
       case "/contact":
-        document.title = "Contact - My Website";
+        document.title = "Contact";
         break;
       case "/outreach":
-        document.title = "Outreach Activities - My Website";
+        document.title = "Outreach";
         break;
       default:
-        document.title = "My Website";
+        document.title = "Sarath Babu";
     }
   }, [location]);
 

@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Header from "./components/Header";
+import Header from "./components/Header"; // Assuming you have a Header component
 import Sidebar from "./components/Sidebar";
 import About from "./components/About";
 import Publications from "./components/Publications";
 import Contact from "./components/Contact";
 import OutreachActivities from './components/OutreachActivities';
-import Footer from "./components/Footer";
+import Footer from "./components/Footer"; // Assuming you have a Footer component
 import styled from "styled-components";
 import NewsAndUpdates from './components/NewsAndUpdates';
 import Resume from './components/Resume';
@@ -24,6 +24,10 @@ const Layout = styled.div`
 const MainContent = styled.div`
   flex: 1; /* Take up remaining space */
   padding: 20px; /* Padding for main content area */
+  
+  @media (max-width: 768px) {
+    padding: 10px; /* Adjust padding for mobile */
+  }
 `;
 
 function App() {

@@ -14,36 +14,6 @@ code {
     monospace;
 }
 
-/* Navigation Bar Styling */
-nav {
-  width: 100%; /* Ensure the nav bar takes full width */
-  background-color: #333; /* Example background color */
-  padding: 10px 0;
-  color: white;
-  box-sizing: border-box;
-}
-
-/* Navigation Links Styling */
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  padding: 0;
-  margin: 0;
-}
-
-nav ul li {
-  flex: 1; /* Each menu item takes equal space */
-  text-align: center;
-}
-
-nav ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
   body {
@@ -54,22 +24,8 @@ nav ul li a {
     font-size: 24px; /* Adjust heading size for mobile */
   }
 
-  /* Adjust paragraph text size for readability */
+  /* Example: Adjust paragraph text size */
   p {
     font-size: 16px; /* Ensure readability */
-  }
-
-  /* Adjust nav bar for mobile */
-  nav ul {
-    flex-direction: column; /* Stack nav items vertically */
-  }
-
-  nav ul li {
-    text-align: left; /* Align items to the left */
-    padding: 5px 10px;
-  }
-
-  nav ul li a {
-    padding: 8px;
   }
 }

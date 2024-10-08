@@ -36,19 +36,42 @@ header, footer {
   p {
     font-size: 16px; /* Adjust paragraph text size to ensure readability */
   }
-  
+
   /* Additional styles for Header */
   header {
     display: flex; /* Use flexbox for header layout */
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally */
+    position: relative; /* For absolute positioning of the menu */
   }
 
   /* Menu items for smaller screens */
   .menuItems {
     display: flex;
     flex-direction: column; /* Stack menu items vertically */
-    align-items: center;
+    align-items: center; /* Center menu items */
+    width: 100%; /* Full width for the menu */
+    background-color: #333; /* Background color matches header */
+    position: absolute; /* Position it below the header */
+    top: 60px; /* Adjust based on header height */
+    right: 0; /* Align to the right */
+    padding: 1rem 0; /* Padding for the menu */
+    z-index: 10; /* Ensure it appears above other content */
+  }
+
+  /* Styling for individual menu items */
+  .menuItems a {
+    color: white; /* Link color */
+    padding: 10px 20px; /* Spacing for clickable area */
+    text-decoration: none; /* Remove underline */
+    width: 100%; /* Full width for easy clicking */
+    text-align: center; /* Center text */
+  }
+
+  /* Hover effect for menu items */
+  .menuItems a:hover {
+    background-color: #f39c12; /* Highlight color on hover */
+    color: #333; /* Change text color on hover */
   }
 
   /* Additional styles for Footer */

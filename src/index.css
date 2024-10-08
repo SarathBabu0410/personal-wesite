@@ -1,3 +1,4 @@
+/* Base Body Styling */
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,27 +6,40 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0 10px; /* Add horizontal padding */
-  box-sizing: border-box; /* Include padding in width calculation */
+  padding: 0 10px; /* Add horizontal padding for larger screens */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
 }
 
+/* Code Block Styling */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-/* Responsive Styles */
+/* Header and Footer Styling */
+header, footer {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px 20px; /* Adjust the padding as needed */
+  background-color: #333; /* Set the background color */
+  color: white; /* Text color */
+}
+
+/* Responsive Styling */
 @media (max-width: 768px) {
   body {
-    padding: 0 15px; /* Increase padding on smaller screens */
+    padding: 0 15px; /* Increase padding on smaller screens for better layout */
+  }
+
+  header, footer {
+    padding: 10px; /* Reduce padding for smaller screens to fit better */
   }
 
   h1 {
-    font-size: 24px; /* Adjust heading size for mobile */
+    font-size: 24px; /* Adjust the font size of headings for mobile screens */
   }
 
-  /* Example: Adjust paragraph text size */
   p {
-    font-size: 16px; /* Ensure readability */
+    font-size: 16px; /* Adjust paragraph text size to ensure readability */
   }
 }
+

@@ -14,11 +14,17 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
-
+  flex-direction: row; /* Display sidebar and content in a row by default */
+  
   /* Ensure that the layout is responsive */
   @media (max-width: 768px) {
-    flex-direction: column; /* Stack sidebar below content on mobile */
+    flex-direction: column; /* Stack content and sidebar vertically in mobile */
   }
+`;
+
+const Content = styled.div`
+  flex: 1; /* Take up the remaining space for the main content */
+  padding: 20px;
 `;
 
 function App() {
@@ -27,8 +33,10 @@ function App() {
       <div className="App">
         <Header /> {/* Using the Header component */}
         <Layout>
-          <Sidebar />
-          <MainContent />
+          <Content>
+            <MainContent />
+          </Content>
+          <Sidebar /> {/* Sidebar will move below content in mobile */}
         </Layout>
         <Footer /> {/* Using the Footer component */}
       </div>

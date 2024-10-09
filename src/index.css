@@ -1,87 +1,94 @@
-/* Base Body Styling */
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  padding: 0 10px;
-  box-sizing: border-box;
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
+import Header from "./components/Header";  // Importing Header component
+import Footer from "./components/Footer";  // Importing Footer component
+import Sidebar from "./components/Sidebar";
+import About from "./components/About";
+import Publications from "./components/Publications";
+import Contact from "./components/Contact";
+import OutreachActivities from './components/OutreachActivities';
+import NewsAndUpdates from './components/NewsAndUpdates';
+import Resume from './components/Resume';
+import styled from "styled-components";
+
+// Layout structure to include both the sidebar and the content
+const Layout = styled.div`
+  display: flex;
+
+  /* On larger screens, sidebar on the left */
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
+
+  /* On mobile screens, stack content first, then sidebar */
+  @media (max-width: 768px) {
+    flex-direction: column-reverse; /* Stack sidebar below the content */
+  }
+`;
+
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Header /> {/* Using the Header component */}
+        <Layout>
+          <MainContent />
+          <Sidebar /> {/* Sidebar will now come below the content on mobile */}
+        </Layout>
+        <Footer /> {/* Using the Footer component */}
+      </div>
+    </Router>
+  );
 }
 
-/* Header and Footer Styling */
-header, footer {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 10px 10px;
-  background-color: #333;
-  color: white;
+// Separate out the MainContent logic to keep things cleaner
+function MainContent() {
+  return (
+    <>
+      <TitleUpdater /> {/* Component to handle title changes */}
+      <Routes>
+        <Route path="/" element={<NewsAndUpdates />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/outreach" element={<OutreachActivities />} />
+      </Routes>
+    </>
+  );
 }
 
-/* Responsive Styling */
-@media (max-width: 768px) {
-  body {
-    padding: 0 15px;
-  }
+// TitleUpdater Component to update the document title based on the route
+function TitleUpdater() {
+  const location = useLocation();
 
-  header, footer {
-    padding: 10px;
-  }
+  useEffect(() => {
+    // Update the document title based on the current path
+    switch (location.pathname) {
+      case "/":
+        document.title = "Sarath Babu - News and Updates";
+        break;
+      case "/about":
+        document.title = "Sarath Babu - About Me";
+        break;
+      case "/resume":
+        document.title = "Sarath Babu - Resume";
+        break;
+      case "/publications":
+        document.title = "Sarath Babu - Publications";
+        break;
+      case "/contact":
+        document.title = "Sarath Babu - Contact";
+        break;
+      case "/outreach":
+        document.title = "Sarath Babu - Outreach";
+        break;
+      default:
+        document.title = "Sarath Babu";
+    }
+  }, [location]);
 
-  h1 {
-    font-size: 24px;
-  }
-
-  p {
-    font-size: 16px;
-  }
-
-  /* Hamburger menu */
-  .hamburger {
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 28px;
-    color: white;
-    position: absolute;
-    top: 15px;
-    right: 20px;
-  }
-
-  /* Menu items */
-  .menuItems {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(51, 51, 51, 0.8); /* Slightly more transparency */
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 50%; /* Adjusted to cover only 70% of the screen width */
-    max-width: 320px; /* Limits the width on larger small screens */
-    padding: 1.5rem 0; /* Increased padding for better spacing */
-    z-index: 10;
-    backdrop-filter: blur(5px); /* Blur background for a stylish effect */
-    border-radius: 0 0 10px 10px; /* Rounded corners */
-  }
-
-  .menuItems a {
-    color: white;
-    padding: 15px 40px; /* Increased padding for easier clicking */
-    text-decoration: none;
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-    border-radius: 5px;
-  }
-
-  .menuItems a:hover {
-    background-color: #f39c12;
-    color: #333;
-  }
-
-  .menuItems a + a {
-    margin-top: 12px; /* Increase spacing between menu items */
-  }
+  return null; // This component doesn't render anything
 }
+
+export default App;

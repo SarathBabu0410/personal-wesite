@@ -7,22 +7,34 @@ const SidebarContainer = styled.div`
   width: 300px; /* Default width for larger screens */
   padding: 2rem;
   background-color: #f8f8f8;
-  height: 100vh; /* Full height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  
+  z-index: 1; /* Ensure it's behind the navbar */
+
+  ${({ isTop }) =>
+    isTop &&
+    `
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto; /* Auto height for mobile when at the top */
+      box-shadow: none;
+      z-index: 1; /* Ensure it's behind the navbar */
+    }
+  `}
+
   @media (max-width: 768px) {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Allow height to adjust based on content */
-    padding: 1rem; /* Reduce padding on smaller screens */
-    box-shadow: none; /* Remove shadow for mobile */
-    margin-top: 20px; /* Add some margin to separate from content */
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    box-shadow: none;
+    margin-top: 20px;
+    z-index: 1; /* Ensure it's behind the navbar */
   }
 `;
 
-// Styling for the profile photo
 const Photo = styled.img`
   width: 150px;
   height: 150px;
@@ -36,7 +48,6 @@ const Photo = styled.img`
   }
 `;
 
-// Name styling for the user
 const Name = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
@@ -47,7 +58,6 @@ const Name = styled.h3`
   }
 `;
 
-// Description text styling
 const Description = styled.p`
   text-align: center;
   color: #555;
@@ -60,9 +70,9 @@ const Description = styled.p`
   }
 `;
 
-function Sidebar() {
+function Sidebar({ isTop }) {
   return (
-    <SidebarContainer>
+    <SidebarContainer isTop={isTop}>
       <Photo src={myPhoto} alt="Sarath Babu" />
       <Name>Sarath Babu</Name>
       <Description>

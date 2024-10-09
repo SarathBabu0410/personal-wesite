@@ -58,7 +58,7 @@ header, footer {
     position: absolute;
     top: 60px;
     right: 0;
-    width: 70%; /* Adjusted to cover only 70% of the screen width */
+    width: 50%; /* Adjusted to cover only 70% of the screen width */
     max-width: 320px; /* Limits the width on larger small screens */
     padding: 1.5rem 0; /* Increased padding for better spacing */
     z-index: 10;

@@ -14,7 +14,7 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
-  
+
   @media (max-width: 768px) {
     flex-direction: column; /* Stack vertically on mobile */
   }
@@ -25,7 +25,6 @@ const NewsAndUpdatesLayout = styled.div`
   flex-direction: column; /* Sidebar on top for mobile view */
 `;
 
-// Wrapper for the main content area
 const MainContent = styled.div`
   flex-grow: 1; /* Take remaining space */
   padding: 1rem; /* Add padding */
@@ -55,56 +54,56 @@ function App() {
             <Route 
               path="/about" 
               element={
-                <>
+                <Layout>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <About />
                   </MainContent>
-                </>
+                </Layout>
               } 
             />
             <Route 
               path="/resume" 
               element={
-                <>
+                <Layout>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Resume />
                   </MainContent>
-                </>
+                </Layout>
               } 
             />
             <Route 
               path="/publications" 
               element={
-                <>
+                <Layout>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Publications />
                   </MainContent>
-                </>
+                </Layout>
               } 
             />
             <Route 
               path="/contact" 
               element={
-                <>
+                <Layout>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Contact />
                   </MainContent>
-                </>
+                </Layout>
               } 
             />
             <Route 
               path="/outreach" 
               element={
-                <>
+                <Layout>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <OutreachActivities />
                   </MainContent>
-                </>
+                </Layout>
               } 
             />
           </Routes>

@@ -14,24 +14,12 @@ const SidebarContainer = styled.div`
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 1; /* Ensure it's behind the navbar */
 
-  ${({ isTop }) =>
-    isTop &&
-    `
-    @media (max-width: 768px) {
-      width: 100%;
-      height: auto; /* Auto height for mobile when at the top */
-      box-shadow: none;
-      z-index: 1; /* Ensure it's behind the navbar */
-    }
-  `}
-
+  /* Styles when sidebar is at the top in mobile view */
   @media (max-width: 768px) {
-    width: 100%;
-    height: auto;
-    padding: 1rem;
-    box-shadow: none;
-    margin-top: 20px;
-    z-index: 1; /* Ensure it's behind the navbar */
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Auto height for mobile when at the top */
+    box-shadow: none; /* Remove shadow for mobile */
+    margin-top: 20px; /* Add some margin to separate from content */
   }
 `;
 
@@ -72,7 +60,7 @@ const Description = styled.p`
 
 function Sidebar({ isTop }) {
   return (
-    <SidebarContainer isTop={isTop}>
+    <SidebarContainer>
       <Photo src={myPhoto} alt="Sarath Babu" />
       <Name>Sarath Babu</Name>
       <Description>

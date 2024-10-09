@@ -6,78 +6,78 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 0 10px; /* Add horizontal padding for larger screens */
-  box-sizing: border-box; /* Ensure padding is included in width calculation */
+  padding: 0 10px;
+  box-sizing: border-box;
 }
 
 /* Header and Footer Styling */
 header, footer {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 20px; /* Adjust the padding as needed */
-  background-color: #333; /* Set the background color */
-  color: white; /* Text color */
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
 }
 
 /* Responsive Styling */
 @media (max-width: 768px) {
   body {
-    padding: 0 15px; /* Increase padding on smaller screens for better layout */
+    padding: 0 15px;
   }
 
   header, footer {
-    padding: 10px; /* Reduce padding for smaller screens to fit better */
+    padding: 10px;
   }
 
   h1 {
-    font-size: 24px; /* Adjust the font size of headings for mobile screens */
+    font-size: 24px;
   }
 
   p {
-    font-size: 16px; /* Adjust paragraph text size to ensure readability */
+    font-size: 16px;
   }
 
-  /* Additional styles for Header */
-  header {
-    display: flex; /* Use flexbox for header layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center items horizontally */
-    position: relative; /* For absolute positioning of the menu */
+  /* Hamburger menu */
+  .hamburger {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 28px;
+    color: white;
+    position: absolute;
+    top: 15px;
+    right: 20px;
   }
 
-  /* Menu items for smaller screens */
+  /* Menu items */
   .menuItems {
     display: flex;
-    flex-direction: column; /* Stack menu items vertically */
-    align-items: center; /* Center menu items */
-    width: 100%; /* Full width for the menu */
-    background-color: #333; /* Background color matches header */
-    position: absolute; /* Position it below the header */
-    top: 60px; /* Adjust based on header height */
-    right: 0; /* Align to the right */
-    padding: 1rem 0; /* Padding for the menu */
-    z-index: 10; /* Ensure it appears above other content */
-    border-radius: 0 0 5px 5px; /* Optional: add rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for depth */
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(51, 51, 51, 0.9);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 1rem 0;
+    z-index: 10;
   }
 
-  /* Styling for individual menu items */
   .menuItems a {
-    color: white; /* Link color */
-    padding: 10px 20px; /* Spacing for clickable area */
-    text-decoration: none; /* Remove underline */
-    width: 100%; /* Full width for easy clicking */
-    text-align: center; /* Center text */
+    color: white;
+    padding: 12px 30px;
+    text-decoration: none;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
   }
 
-  /* Hover effect for menu items */
   .menuItems a:hover {
-    background-color: #f39c12; /* Highlight color on hover */
-    color: #333; /* Change text color on hover */
+    background-color: #f39c12;
+    color: #333;
   }
 
-  /* Additional styles for Footer */
-  footer {
-    text-align: center; /* Center the footer text */
+  .menuItems a + a {
+    margin-top: 8px;
   }
 }

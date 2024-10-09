@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom"; // Import useLocation for conditional rendering
+import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import myPhoto from "../assets/1234x.jpeg"; // Your photo
 
@@ -16,9 +16,10 @@ const SidebarContainer = styled.div`
   @media (max-width: 768px) {
     width: 100%; /* Full width on mobile */
     height: auto; /* Adjust height for mobile */
-    position: ${(props) => (props.isNewsPage ? "relative" : "fixed")}; /* Position based on page */
+    position: ${(props) => (props.isNewsPage ? "relative" : "fixed")}; /* Position sidebar relative on News page, fixed on others */
     bottom: ${(props) => (props.isNewsPage ? "auto" : "0")}; /* Keep at bottom unless it's news page */
     box-shadow: none; /* Remove shadow for mobile */
+    z-index: 999; /* Ensure the sidebar is above other elements */
   }
 `;
 
@@ -31,12 +32,12 @@ const Photo = styled.img`
 
   @media (max-width: 768px) {
     width: 120px;
-    height: 120px; /* Reduce image size on smaller screens */
+    height: 120px;
   }
 `;
 
 const AboutContainer = styled.div`
-  margin-top: 2rem; /* Added small space below the name */
+  margin-top: 2rem; /* Space below the name */
 `;
 
 const Heading = styled.h3`
@@ -45,19 +46,19 @@ const Heading = styled.h3`
   color: #333;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem; /* Adjust font size for mobile */
+    font-size: 1.2rem;
   }
 `;
 
 const Description = styled.p`
-  text-align: justify; /* Justify alignment for a clean, standard look */
+  text-align: justify; 
   color: #555;
-  font-size: 0.95rem; /* Reduced font size */
+  font-size: 0.95rem;
   margin-top: 1rem;
   line-height: 1.6;
 
   @media (max-width: 768px) {
-    font-size: 0.85rem; /* Adjust font size for mobile */
+    font-size: 0.85rem;
   }
 `;
 

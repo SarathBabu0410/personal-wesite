@@ -28,13 +28,12 @@ function App() {
         <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
           <Routes>
-            {/* News and Updates Page - Sidebar at the top in mobile */}
+            {/* News and Updates Page - Sidebar at the top for mobile view */}
             <Route 
               path="/" 
               element={
                 <>
-                  {/* Show sidebar only in mobile view */}
-                  <Sidebar /> {/* Sidebar at the top for mobile view */}
+                  <Sidebar /> {/* Sidebar for mobile view */}
                   <NewsAndUpdates />
                 </>
               } 

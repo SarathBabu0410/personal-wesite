@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
+import Sidebar from "./Sidebar"; // Import your Sidebar component
 
 // Global font import
 const GlobalStyle = createGlobalStyle`
@@ -21,16 +22,6 @@ const fadeIn = keyframes`
     transform: translateY(0); /* Final position */
   }
 `;
-
-// // Keyframes for blinking animation
-// const blink = keyframes`
-//   0%, 100% {
-//     opacity: 1;
-//   }
-//   50% {
-//     opacity: 0.5; /* Fade to 50% opacity */
-//   }
-// `;
 
 // Container for the page
 const NewsContainer = styled.div`
@@ -54,7 +45,7 @@ const QuoteBox = styled.div`
 const QuoteText = styled.p`
   font-size: 1.5rem; /* Larger font for quotes */
   font-style: italic;
-  color: #555;
+  color: #0077cc; /* Change color for better visibility */
   text-align: center;
   margin: 0;
 `;
@@ -97,18 +88,18 @@ const NewsDate = styled.p`
 const newsItems = [
   {
     title: "New Research Project Launched",
-    description: "",
-    date: "",
+    description: "A new project focusing on AI and cybersecurity has been launched.",
+    date: "October 1, 2024",
   },
   {
     title: "Workshop on Vehicular Networks",
-    description: "",
-    date: "",
+    description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
+    date: "October 5, 2024",
   },
   {
     title: "Publication in Leading Journal",
-    description: "",
-    date: "",
+    description: "A recent paper has been accepted for publication in a leading journal.",
+    date: "October 7, 2024",
   },
 ];
 
@@ -120,14 +111,6 @@ const quotes = [
   "Science is not only compatible with spirituality; it is a profound source of spirituality. - Carl Sagan",
   "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",
 ];
-
-// // Import your blinking symbol image
-// const BlinkingSymbol = styled.img`
-//   width: 50px; /* Adjust the size as needed */
-//   height: 50px;
-//   animation: ${blink} 1.5s infinite; /* Blink animation */
-//   margin-bottom: 1rem; /* Space below the blinking symbol */
-// `;
 
 const NewsAndUpdates = () => {
   // State to hold the random quote
@@ -147,15 +130,13 @@ const NewsAndUpdates = () => {
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
+      <Sidebar /> {/* Include the sidebar */}
       {/* Quotes Section */}
       <QuoteBox>
         <QuoteText>{randomQuote}</QuoteText>
       </QuoteBox>
 
       <Heading>News and Updates</Heading>
-
-      {/* Blinking symbol at the top of the news section
-      <BlinkingSymbol src="assets/blinking-symbol.png" alt="Blinking Symbol" /> */}
 
       {newsItems.length > 0 ? ( // Check if there are news items
         newsItems.map((item, index) => (

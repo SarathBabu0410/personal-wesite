@@ -20,16 +20,6 @@ const Layout = styled.div`
   }
 `;
 
-const NewsAndUpdatesLayout = styled.div`
-  display: flex;
-  flex-direction: column; /* Sidebar on top for mobile view */
-`;
-
-const MainContent = styled.div`
-  flex-grow: 1; /* Take remaining space */
-  padding: 1rem; /* Add padding */
-`;
-
 function App() {
   return (
     <Router>
@@ -42,12 +32,11 @@ function App() {
             <Route 
               path="/" 
               element={
-                <NewsAndUpdatesLayout>
-                  <Sidebar isTop /> {/* Sidebar at the top for mobile view */}
-                  <MainContent>
-                    <NewsAndUpdates />
-                  </MainContent>
-                </NewsAndUpdatesLayout>
+                <>
+                  {/* Show sidebar only in mobile view */}
+                  <Sidebar /> {/* Sidebar at the top for mobile view */}
+                  <NewsAndUpdates />
+                </>
               } 
             />
             {/* Other Pages - Sidebar on the side */}
@@ -56,9 +45,7 @@ function App() {
               element={
                 <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <MainContent>
-                    <About />
-                  </MainContent>
+                  <About />
                 </>
               } 
             />
@@ -67,9 +54,7 @@ function App() {
               element={
                 <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <MainContent>
-                    <Resume />
-                  </MainContent>
+                  <Resume />
                 </>
               } 
             />
@@ -78,9 +63,7 @@ function App() {
               element={
                 <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <MainContent>
-                    <Publications />
-                  </MainContent>
+                  <Publications />
                 </>
               } 
             />
@@ -89,9 +72,7 @@ function App() {
               element={
                 <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <MainContent>
-                    <Contact />
-                  </MainContent>
+                  <Contact />
                 </>
               } 
             />
@@ -100,9 +81,7 @@ function App() {
               element={
                 <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <MainContent>
-                    <OutreachActivities />
-                  </MainContent>
+                  <OutreachActivities />
                 </>
               } 
             />

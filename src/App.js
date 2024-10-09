@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
 import Header from "./components/Header";  // Importing Header component
 import Footer from "./components/Footer";  // Importing Footer component
-import Sidebar from "./components/Sidebar";
+import Sidebar from "./components/Sidebar"; // Importing Sidebar component
 import About from "./components/About";
 import Publications from "./components/Publications";
 import Contact from "./components/Contact";
@@ -25,8 +25,9 @@ function App() {
     <Router>
       <div className="App">
         <Header /> {/* Using the Header component */}
+        <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
-          {/* Use Sidebar as a prop to determine its position */}
+          {/* Routes with different sidebar positioning */}
           <Routes>
             <Route 
               path="/" 

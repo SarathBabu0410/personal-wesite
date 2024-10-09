@@ -54,23 +54,24 @@ header, footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(51, 51, 51, 0.9); /* Slightly transparent */
+    background-color: rgba(51, 51, 51, 0.7); /* More transparent background */
     position: absolute;
     top: 60px;
     right: 0;
     width: 100%;
     padding: 1rem 0;
     z-index: 10;
+    backdrop-filter: blur(5px); /* Optional: Blur effect to make it look elegant */
   }
 
   .menuItems a {
     color: white;
-    padding: 12px 30px; /* Larger padding for better clickability */
+    padding: 12px 30px;
     text-decoration: none;
     width: 100%;
     text-align: center;
     font-size: 18px;
-    border-radius: 5px; /* Rounded edges for button-like appearance */
+    border-radius: 5px;
   }
 
   .menuItems a:hover {
@@ -79,6 +80,6 @@ header, footer {
   }
 
   .menuItems a + a {
-    margin-top: 8px; /* Spacing between menu items */
+    margin-top: 8px;
   }
 }

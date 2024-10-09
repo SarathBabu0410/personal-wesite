@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom"; // Import useLocation for conditional rendering
 import styled from "styled-components";
-import myPhoto from "../assets/1234x.jpeg"; // Add your photo in the assets folder
+import myPhoto from "../assets/1234x.jpeg"; // Your photo
 
 const SidebarContainer = styled.div`
   width: 300px;
@@ -12,6 +12,14 @@ const SidebarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 768px) {
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Adjust height for mobile */
+    position: ${(props) => (props.isNewsPage ? "relative" : "fixed")}; /* Position based on page */
+    bottom: ${(props) => (props.isNewsPage ? "auto" : "0")}; /* Keep at bottom unless it's news page */
+    box-shadow: none; /* Remove shadow for mobile */
+  }
 `;
 
 const Photo = styled.img`
@@ -20,14 +28,12 @@ const Photo = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
-`;
 
-// const Name = styled.h3`
-//   margin-top: 1rem;
-//   font-weight: bold;
-//   font-size: 1.3rem;
-//   color: #333;
-// `;
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 120px; /* Reduce image size on smaller screens */
+  }
+`;
 
 const AboutContainer = styled.div`
   margin-top: 2rem; /* Added small space below the name */
@@ -37,6 +43,10 @@ const Heading = styled.h3`
   font-weight: bold;
   font-size: 1.5rem;
   color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Adjust font size for mobile */
+  }
 `;
 
 const Description = styled.p`
@@ -45,6 +55,10 @@ const Description = styled.p`
   font-size: 0.95rem; /* Reduced font size */
   margin-top: 1rem;
   line-height: 1.6;
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem; /* Adjust font size for mobile */
+  }
 `;
 
 const Button = styled(Link)`
@@ -64,15 +78,17 @@ const Button = styled(Link)`
 `;
 
 function Sidebar() {
+  const location = useLocation(); // Get current location
+  const isNewsPage = location.pathname === "/"; // Check if the current page is News and Updates
+
   return (
-    <SidebarContainer>
+    <SidebarContainer isNewsPage={isNewsPage}>
       <Photo src={myPhoto} alt="Sarath Babu" />
       <AboutContainer>
         <Heading>About Me</Heading>
         <Description>
           Hi, I am Sarath Babu, Postdoctoral Researcher at the Indian Institute of Technology Bombay. I completed my Ph.D. in Computer Science from the National Institute of Technology Calicut. My professional journey is driven by a deep commitment to advancing knowledge through research and teaching.
         </Description>
-        {/* "LEARN MORE" button linked to the About page */}
         <Button to="/About">LEARN MORE</Button>
       </AboutContainer>
     </SidebarContainer>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import Sidebar from "./Sidebar"; // Import your Sidebar component
 
 // Global font import
 const GlobalStyle = createGlobalStyle`
@@ -23,17 +22,11 @@ const fadeIn = keyframes`
   }
 `;
 
-// Container for the page with margin to accommodate the sidebar
+// Container for the page
 const NewsContainer = styled.div`
   padding: 2rem;
-  margin-left: 320px; /* Add margin to the left for the sidebar */
-  max-width: calc(100% - 320px); /* Adjust width to not overlap with sidebar */
-  transition: all 0.3s ease;
-
-  @media (max-width: 768px) {
-    margin-left: 0; /* Remove left margin for mobile */
-    max-width: 100%; /* Full width for mobile */
-  }
+  max-width: 1200px; /* Maximum width for larger screens */
+  margin: 0 auto;
 `;
 
 // Box for the quotes section
@@ -134,31 +127,27 @@ const NewsAndUpdates = () => {
   }, []);
 
   return (
-    <>
-      <Sidebar /> {/* Place the sidebar outside the NewsContainer */}
-      <NewsContainer>
-        <GlobalStyle /> {/* Apply global styles */}
-        
-        {/* Quotes Section */}
-        <QuoteBox>
-          <QuoteText>{randomQuote}</QuoteText>
-        </QuoteBox>
+    <NewsContainer>
+      <GlobalStyle /> {/* Apply global styles */}
+      {/* Quotes Section */}
+      <QuoteBox>
+        <QuoteText>{randomQuote}</QuoteText>
+      </QuoteBox>
 
-        <Heading>News and Updates</Heading>
+      <Heading>News and Updates</Heading>
 
-        {newsItems.length > 0 ? ( // Check if there are news items
-          newsItems.map((item, index) => (
-            <NewsCard key={index}>
-              <NewsTitle>{item.title}</NewsTitle>
-              <NewsDescription>{item.description}</NewsDescription>
-              <NewsDate>{item.date}</NewsDate>
-            </NewsCard>
-          ))
-        ) : (
-          <p>No updates available at this time.</p> // Message if no news items
-        )}
-      </NewsContainer>
-    </>
+      {newsItems.length > 0 ? ( // Check if there are news items
+        newsItems.map((item, index) => (
+          <NewsCard key={index}>
+            <NewsTitle>{item.title}</NewsTitle>
+            <NewsDescription>{item.description}</NewsDescription>
+            <NewsDate>{item.date}</NewsDate>
+          </NewsCard>
+        ))
+      ) : (
+        <p>No updates available at this time.</p> // Message if no news items
+      )}
+    </NewsContainer>
   );
 };
 

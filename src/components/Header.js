@@ -29,6 +29,7 @@ const Hamburger = styled.button`
 
 const MenuItems = styled.div`
   display: flex;
+  flex-direction: row;
 
   a {
     color: white;
@@ -36,20 +37,34 @@ const MenuItems = styled.div`
     margin: 0 1rem;
   }
 
-  a:hover {
-    color: #f39c12;
-  }
-
   @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    top: 60px;
+    flex-direction: column; /* Stack menu items vertically */
+    align-items: center; /* Center menu items */
+    width: 100%; /* Full width for the menu */
+    background-color: rgba(51, 51, 51, 0.95); /* Slightly transparent */
+    position: absolute; /* Position it below the header */
+    top: 60px; /* Adjust based on header height */
     right: 0;
-    width: 100%;
-    background-color: rgba(51, 51, 51, 0.9);
-    display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Conditionally show the menu */
-    z-index: 10;
+    padding: 1rem 0; /* Padding for the menu */
+    z-index: 10; /* Ensure it appears above other content */
+    display: ${({ isOpen }) => (isOpen ? "flex" : "none")}; /* Toggle display based on isOpen state */
+  }
+`;
+
+const MenuItemButton = styled(Link)`
+  width: 90%; /* Button width, leaves some margin on both sides */
+  padding: 12px 20px; /* Space for clickability */
+  margin: 8px 0; /* Space between buttons */
+  background-color: #444; /* Button background color */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px; /* Rounded corners for button-like appearance */
+  font-size: 18px; /* Adjust font size */
+
+  &:hover {
+    background-color: #f39c12; /* Highlight color on hover */
+    color: #333; /* Change text color on hover */
   }
 `;
 
@@ -63,12 +78,12 @@ function Header() {
         ☰ {/* Hamburger Icon */}
       </Hamburger>
       <MenuItems isOpen={isOpen}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/resume">Resume</Link>
-        <Link to="/publications">Publications</Link>
-        <Link to="/outreach">Outreach</Link>
-        <Link to="/contact">Contact</Link>
+        <MenuItemButton to="/">Home</MenuItemButton>
+        <MenuItemButton to="/about">About</MenuItemButton>
+        <MenuItemButton to="/resume">Resume</MenuItemButton>
+        <MenuItemButton to="/publications">Publications</MenuItemButton>
+        <MenuItemButton to="/outreach">Outreach</MenuItemButton>
+        <MenuItemButton to="/contact">Contact</MenuItemButton>
       </MenuItems>
     </Nav>
   );

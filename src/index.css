@@ -14,7 +14,7 @@ body {
 header, footer {
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: #333;
   color: white;
 }
@@ -54,22 +54,26 @@ header, footer {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: rgba(51, 51, 51, 0.9);
+    background-color: rgba(51, 51, 51, 0.8); /* Slightly more transparency */
     position: absolute;
     top: 60px;
     right: 0;
-    width: 100%;
-    padding: 1rem 0;
+    width: 70%; /* Adjusted to cover only 70% of the screen width */
+    max-width: 320px; /* Limits the width on larger small screens */
+    padding: 1.5rem 0; /* Increased padding for better spacing */
     z-index: 10;
+    backdrop-filter: blur(5px); /* Blur background for a stylish effect */
+    border-radius: 0 0 10px 10px; /* Rounded corners */
   }
 
   .menuItems a {
     color: white;
-    padding: 12px 30px;
+    padding: 15px 40px; /* Increased padding for easier clicking */
     text-decoration: none;
     width: 100%;
     text-align: center;
     font-size: 18px;
+    border-radius: 5px;
   }
 
   .menuItems a:hover {
@@ -78,6 +82,6 @@ header, footer {
   }
 
   .menuItems a + a {
-    margin-top: 8px;
+    margin-top: 12px; /* Increase spacing between menu items */
   }
 }

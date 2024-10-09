@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, useLocation } from "react-router-dom";
-import Header from "./components/Header";  // Importing Header component
-import Footer from "./components/Footer";  // Importing Footer component
+import Header from "./components/Header"; // Importing Header component
+import Footer from "./components/Footer"; // Importing Footer component
 import Sidebar from "./components/Sidebar";
 import About from "./components/About";
 import Publications from "./components/Publications";
@@ -14,6 +14,20 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
+  flex-direction: row; /* Default to row layout */
+  
+  @media (max-width: 768px) {
+    flex-direction: column; /* Change to column layout on mobile */
+  }
+`;
+
+const Content = styled.main`
+  flex: 1; /* Allow content to grow */
+  padding: 2rem; /* Add some padding for content */
+  
+  @media (max-width: 768px) {
+    padding: 1rem; /* Reduce padding for mobile */
+  }
 `;
 
 function App() {
@@ -22,17 +36,18 @@ function App() {
       <div className="App">
         <Header /> {/* Using the Header component */}
         <Layout>
-          <Sidebar />
-          <TitleUpdater /> {/* Component to handle title changes */}
-          <Routes>
-            <Route path="/" element={<NewsAndUpdates />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/outreach" element={<OutreachActivities />} />
-          </Routes>
+          <Content>
+            <TitleUpdater /> {/* Component to handle title changes */}
+            <Routes>
+              <Route path="/" element={<NewsAndUpdates />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/publications" element={<Publications />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/outreach" element={<OutreachActivities />} />
+            </Routes>
+          </Content>
+          <Sidebar /> {/* Sidebar will be positioned after content on mobile */}
         </Layout>
         <Footer /> {/* Using the Footer component */}
       </div>

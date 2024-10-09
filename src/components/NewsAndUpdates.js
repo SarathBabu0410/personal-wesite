@@ -23,11 +23,17 @@ const fadeIn = keyframes`
   }
 `;
 
-// Container for the page
+// Container for the page with margin to accommodate the sidebar
 const NewsContainer = styled.div`
   padding: 2rem;
-  max-width: 1200px; /* Maximum width for larger screens */
-  margin: 0 auto;
+  margin-left: 320px; /* Add margin to the left for the sidebar */
+  max-width: calc(100% - 320px); /* Adjust width to not overlap with sidebar */
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    margin-left: 0; /* Remove left margin for mobile */
+    max-width: 100%; /* Full width for mobile */
+  }
 `;
 
 // Box for the quotes section
@@ -128,28 +134,31 @@ const NewsAndUpdates = () => {
   }, []);
 
   return (
-    <NewsContainer>
-      <GlobalStyle /> {/* Apply global styles */}
-      <Sidebar /> {/* Include the sidebar */}
-      {/* Quotes Section */}
-      <QuoteBox>
-        <QuoteText>{randomQuote}</QuoteText>
-      </QuoteBox>
+    <>
+      <Sidebar /> {/* Place the sidebar outside the NewsContainer */}
+      <NewsContainer>
+        <GlobalStyle /> {/* Apply global styles */}
+        
+        {/* Quotes Section */}
+        <QuoteBox>
+          <QuoteText>{randomQuote}</QuoteText>
+        </QuoteBox>
 
-      <Heading>News and Updates</Heading>
+        <Heading>News and Updates</Heading>
 
-      {newsItems.length > 0 ? ( // Check if there are news items
-        newsItems.map((item, index) => (
-          <NewsCard key={index}>
-            <NewsTitle>{item.title}</NewsTitle>
-            <NewsDescription>{item.description}</NewsDescription>
-            <NewsDate>{item.date}</NewsDate>
-          </NewsCard>
-        ))
-      ) : (
-        <p>No updates available at this time.</p> // Message if no news items
-      )}
-    </NewsContainer>
+        {newsItems.length > 0 ? ( // Check if there are news items
+          newsItems.map((item, index) => (
+            <NewsCard key={index}>
+              <NewsTitle>{item.title}</NewsTitle>
+              <NewsDescription>{item.description}</NewsDescription>
+              <NewsDate>{item.date}</NewsDate>
+            </NewsCard>
+          ))
+        ) : (
+          <p>No updates available at this time.</p> // Message if no news items
+        )}
+      </NewsContainer>
+    </>
   );
 };
 

@@ -54,56 +54,56 @@ function App() {
             <Route 
               path="/about" 
               element={
-                <Layout>
+                <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <About />
                   </MainContent>
-                </Layout>
+                </>
               } 
             />
             <Route 
               path="/resume" 
               element={
-                <Layout>
+                <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Resume />
                   </MainContent>
-                </Layout>
+                </>
               } 
             />
             <Route 
               path="/publications" 
               element={
-                <Layout>
+                <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Publications />
                   </MainContent>
-                </Layout>
+                </>
               } 
             />
             <Route 
               path="/contact" 
               element={
-                <Layout>
+                <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <Contact />
                   </MainContent>
-                </Layout>
+                </>
               } 
             />
             <Route 
               path="/outreach" 
               element={
-                <Layout>
+                <>
                   <Sidebar /> {/* Sidebar on the side for other pages */}
                   <MainContent>
                     <OutreachActivities />
                   </MainContent>
-                </Layout>
+                </>
               } 
             />
           </Routes>

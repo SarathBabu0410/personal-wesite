@@ -81,4 +81,69 @@ const NewsDescription = styled.p`
 const NewsDate = styled.p`
   font-size: 0.9rem;
   color: #999;
-  margin-top: 0.
+  margin-top: 0.5rem;
+`;
+
+// Sample news items
+const newsItems = [
+  {
+    title: "New Research Project Launched",
+    description: "A new project focusing on AI and cybersecurity has been launched.",
+    date: "October 1, 2024",
+  },
+  {
+    title: "Workshop on Vehicular Networks",
+    description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
+    date: "October 5, 2024",
+  },
+  {
+    title: "Publication in Leading Journal",
+    description: "A recent paper has been accepted for publication in a leading journal.",
+    date: "October 7, 2024",
+  },
+];
+
+// Array of quotes
+const quotes = [
+  "Research is what I'm doing when I don't know what I'm doing. - Wernher von Braun",
+  "The best way to predict the future is to invent it. - Alan Kay",
+  "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. - Albert Schweitzer",
+  "Science is not only compatible with spirituality; it is a profound source of spirituality. - Carl Sagan",
+  "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",
+];
+
+const NewsAndUpdates = () => {
+  const [randomQuote, setRandomQuote] = useState("");
+
+  const getRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setRandomQuote(quotes[randomIndex]);
+  };
+
+  useEffect(() => {
+    getRandomQuote();
+  }, []);
+
+  return (
+    <NewsContainer>
+      <GlobalStyle /> {/* Apply global styles */}
+      {/* Sidebar appears at the top in mobile view */}
+      <Sidebar isTop />
+      <QuoteBox>
+        <QuoteText>{randomQuote}</QuoteText>
+      </QuoteBox>
+
+      <Heading>News and Updates</Heading>
+
+      {newsItems.map((item, index) => (
+        <NewsCard key={index}>
+          <NewsTitle>{item.title}</NewsTitle>
+          <NewsDescription>{item.description}</NewsDescription>
+          <NewsDate>{item.date}</NewsDate>
+        </NewsCard>
+      ))}
+    </NewsContainer>
+  );
+};
+
+export default NewsAndUpdates;

@@ -20,6 +20,11 @@ const Layout = styled.div`
   }
 `;
 
+const NewsAndUpdatesLayout = styled.div`
+  display: flex;
+  flex-direction: column; /* Sidebar on top for mobile view */
+`;
+
 function App() {
   return (
     <Router>
@@ -27,17 +32,18 @@ function App() {
         <Header /> {/* Using the Header component */}
         <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
-          {/* Routes with different sidebar positioning */}
           <Routes>
+            {/* News and Updates Page - Sidebar at the top in mobile */}
             <Route 
               path="/" 
               element={
-                <>
+                <NewsAndUpdatesLayout>
                   <Sidebar isTop /> {/* Sidebar at the top for mobile view */}
                   <NewsAndUpdates />
-                </>
+                </NewsAndUpdatesLayout>
               } 
             />
+            {/* Other Pages - Sidebar on the side */}
             <Route 
               path="/about" 
               element={
@@ -99,7 +105,7 @@ function TitleUpdater() {
     // Update the document title based on the current path
     switch (location.pathname) {
       case "/":
-        document.title = "Sarath Babu";
+        document.title = "Sarath Babu - News & Updates";
         break;
       case "/about":
         document.title = "About Me";

@@ -14,6 +14,10 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack vertically on mobile */
+  }
 `;
 
 function App() {
@@ -22,16 +26,62 @@ function App() {
       <div className="App">
         <Header /> {/* Using the Header component */}
         <Layout>
-          <Sidebar />
-          <TitleUpdater /> {/* Component to handle title changes */}
+          {/* Use Sidebar as a prop to determine its position */}
           <Routes>
-            <Route path="/" element={<NewsAndUpdates />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/outreach" element={<OutreachActivities />} />
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Sidebar isTop /> {/* Sidebar at the top for mobile view */}
+                  <NewsAndUpdates />
+                </>
+              } 
+            />
+            <Route 
+              path="/about" 
+              element={
+                <>
+                  <Sidebar /> {/* Sidebar on the side for other pages */}
+                  <About />
+                </>
+              } 
+            />
+            <Route 
+              path="/resume" 
+              element={
+                <>
+                  <Sidebar /> {/* Sidebar on the side for other pages */}
+                  <Resume />
+                </>
+              } 
+            />
+            <Route 
+              path="/publications" 
+              element={
+                <>
+                  <Sidebar /> {/* Sidebar on the side for other pages */}
+                  <Publications />
+                </>
+              } 
+            />
+            <Route 
+              path="/contact" 
+              element={
+                <>
+                  <Sidebar /> {/* Sidebar on the side for other pages */}
+                  <Contact />
+                </>
+              } 
+            />
+            <Route 
+              path="/outreach" 
+              element={
+                <>
+                  <Sidebar /> {/* Sidebar on the side for other pages */}
+                  <OutreachActivities />
+                </>
+              } 
+            />
           </Routes>
         </Layout>
         <Footer /> {/* Using the Footer component */}

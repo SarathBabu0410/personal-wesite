@@ -14,6 +14,11 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
+
+  /* Ensure that the layout is responsive */
+  @media (max-width: 768px) {
+    flex-direction: column; /* Stack sidebar below content on mobile */
+  }
 `;
 
 function App() {
@@ -23,20 +28,28 @@ function App() {
         <Header /> {/* Using the Header component */}
         <Layout>
           <Sidebar />
-          <TitleUpdater /> {/* Component to handle title changes */}
-          <Routes>
-            <Route path="/" element={<NewsAndUpdates />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/resume" element={<Resume />} />
-            <Route path="/publications" element={<Publications />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/outreach" element={<OutreachActivities />} />
-          </Routes>
+          <MainContent />
         </Layout>
         <Footer /> {/* Using the Footer component */}
       </div>
     </Router>
+  );
+}
+
+// Separate out the MainContent logic to keep things cleaner
+function MainContent() {
+  return (
+    <>
+      <TitleUpdater /> {/* Component to handle title changes */}
+      <Routes>
+        <Route path="/" element={<NewsAndUpdates />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/resume" element={<Resume />} />
+        <Route path="/publications" element={<Publications />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/outreach" element={<OutreachActivities />} />
+      </Routes>
+    </>
   );
 }
 
@@ -48,22 +61,22 @@ function TitleUpdater() {
     // Update the document title based on the current path
     switch (location.pathname) {
       case "/":
-        document.title = "Sarath Babu";
+        document.title = "Sarath Babu - News and Updates";
         break;
       case "/about":
-        document.title = "About Me";
+        document.title = "Sarath Babu - About Me";
         break;
       case "/resume":
-        document.title = "Resume";
+        document.title = "Sarath Babu - Resume";
         break;
       case "/publications":
-        document.title = "Publications";
+        document.title = "Sarath Babu - Publications";
         break;
       case "/contact":
-        document.title = "Contact";
+        document.title = "Sarath Babu - Contact";
         break;
       case "/outreach":
-        document.title = "Outreach";
+        document.title = "Sarath Babu - Outreach";
         break;
       default:
         document.title = "Sarath Babu";

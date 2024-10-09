@@ -15,24 +15,45 @@ const SidebarContainer = styled.div`
   
   @media (max-width: 768px) {
     width: 100%; /* Full width on mobile */
-    height: auto; /* Allow height to be automatic */
+    height: auto; /* Allow height to adjust based on content */
     padding: 1rem; /* Reduce padding on smaller screens */
     box-shadow: none; /* Remove shadow for mobile */
+    margin-top: 20px; /* Add some margin to separate from content */
   }
 `;
 
+// Styling for the profile photo
 const Photo = styled.img`
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+
+  @media (max-width: 768px) {
+    width: 120px;
+    height: 120px; /* Reduce image size on smaller screens */
+  }
 `;
 
+// Name styling for the user
+const Name = styled.h3`
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+
+  @media (max-width: 768px) {
+    font-size: 1.2rem; /* Adjust font size for mobile */
+  }
+`;
+
+// Description text styling
 const Description = styled.p`
   text-align: center;
   color: #555;
   font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
     font-size: 1rem; /* Adjust font size for mobile */
@@ -43,7 +64,7 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <Photo src={myPhoto} alt="Sarath Babu" />
-      <h3>Sarath Babu</h3>
+      <Name>Sarath Babu</Name>
       <Description>
         Postdoctoral Researcher at IIT Bombay, specializing in network security and AI-powered adaptive cyber defense.
       </Description>

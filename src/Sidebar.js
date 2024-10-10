@@ -18,21 +18,21 @@ const SidebarContainer = styled.div`
     isTop &&
     `
     @media (max-width: 768px) {
-      width: 100%; /* Full width for mobile to match header width */
+      width: 100%; /* Full width on mobile to match header */
       height: auto; /* Auto height for mobile when at the top */
       box-shadow: none;
       z-index: 1; /* Ensure it's behind the navbar */
-      padding: 1rem; /* Adjust padding to fit smaller screens */
+      padding: 0.5rem; /* Reduce padding for smaller screens */
     }
   `}
 
   @media (max-width: 768px) {
-    width: 100%; /* Full width for mobile to match header width */
-    height: auto;
-    padding: 1rem;
-    box-shadow: none;
-    margin-top: 0; /* Align sidebar with header */
-    z-index: 1; /* Ensure it's behind the navbar */
+    width: 100%; /* Full width on mobile */
+    height: auto; /* Allow the sidebar to auto-adjust its height */
+    padding: 0.5rem; /* Reduce padding */
+    margin-top: 0; /* Align it with the top of the screen */
+    box-shadow: none; /* Remove shadow in mobile view */
+    z-index: 1; /* Keep sidebar behind navbar */
   }
 `;
 
@@ -44,8 +44,8 @@ const Photo = styled.img`
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    width: 120px;
-    height: 120px; /* Reduce image size on smaller screens */
+    width: 100px;
+    height: 100px; /* Reduce image size on smaller screens */
   }
 `;
 
@@ -67,7 +67,7 @@ const Description = styled.p`
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    font-size: 1rem; /* Adjust font size for mobile */
+    font-size: 0.9rem; /* Adjust font size for mobile */
   }
 `;
 

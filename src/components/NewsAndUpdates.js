@@ -110,6 +110,7 @@ const quotes = [
   "Science is not only compatible with spirituality; it is a profound source of spirituality. - Carl Sagan",
   "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",
   "Our grandmother taught us to retain dignity at all costs, a value that’s stayed with me until today. – Ratan Tata",
+  "The greatest pleasure I've had is trying to do something, everybody says 'could not be done.- Ratan Tata",
 ];
 
 const NewsAndUpdates = () => {

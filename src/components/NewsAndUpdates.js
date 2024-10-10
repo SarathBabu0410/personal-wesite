@@ -109,7 +109,7 @@ const quotes = [
   "Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful. - Albert Schweitzer",
   "Science is not only compatible with spirituality; it is a profound source of spirituality. - Carl Sagan",
   "The important thing is not to stop questioning. Curiosity has its own reason for existing. - Albert Einstein",
-  “Our grandmother taught us to retain dignity at all costs, a value that’s stayed with me until today. – Ratan Tata",
+  "Our grandmother taught us to retain dignity at all costs, a value that’s stayed with me until today. – Ratan Tata",
 ];
 
 const NewsAndUpdates = () => {

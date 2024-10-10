@@ -20,6 +20,11 @@ const Layout = styled.div`
   }
 `;
 
+const NewsAndUpdatesLayout = styled.div`
+  display: flex;
+  flex-direction: column; /* Sidebar on top for mobile view */
+`;
+
 function App() {
   return (
     <Router>
@@ -28,14 +33,14 @@ function App() {
         <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
           <Routes>
-            {/* News and Updates Page - Sidebar at the top for mobile view */}
+            {/* News and Updates Page - Sidebar at the top in mobile */}
             <Route 
               path="/" 
               element={
-                <>
-                  <Sidebar /> {/* Sidebar for mobile view */}
+                <NewsAndUpdatesLayout>
+                  <Sidebar isTop /> {/* Sidebar at the top for mobile view */}
                   <NewsAndUpdates />
-                </>
+                </NewsAndUpdatesLayout>
               } 
             />
             {/* Other Pages - Sidebar on the side */}

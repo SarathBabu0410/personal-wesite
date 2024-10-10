@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import myPhoto from "../assets/myPhoto.jpg"; // Add your photo in the assets folder
+import myPhoto from "../assets/1234x..jpeg"; // Add your photo in the assets folder
 
 // SidebarContainer with responsive design
 const SidebarContainer = styled.div`

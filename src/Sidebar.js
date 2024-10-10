@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import myPhoto from "../assets/myPhoto.jpg"; // Add your photo in the assets folder
-import { useLocation } from "react-router-dom"; // Import useLocation to track the current path
 
+// SidebarContainer with responsive design
 const SidebarContainer = styled.div`
   width: 300px; /* Default width for larger screens */
   padding: 2rem;
@@ -14,11 +14,25 @@ const SidebarContainer = styled.div`
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
   z-index: 1; /* Ensure it's behind the navbar */
 
+  ${({ isTop }) =>
+    isTop &&
+    `
+    @media (max-width: 768px) {
+      width: 100%; /* Full width for mobile to match header width */
+      height: auto; /* Auto height for mobile when at the top */
+      box-shadow: none;
+      z-index: 1; /* Ensure it's behind the navbar */
+      padding: 1rem; /* Adjust padding to fit smaller screens */
+    }
+  `}
+
   @media (max-width: 768px) {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Auto height for mobile */
-    box-shadow: none; /* Remove shadow for mobile */
-    margin-top: 20px; /* Add some margin to separate from content */
+    width: 100%; /* Full width for mobile to match header width */
+    height: auto;
+    padding: 1rem;
+    box-shadow: none;
+    margin-top: 0; /* Align sidebar with header */
+    z-index: 1; /* Ensure it's behind the navbar */
   }
 `;
 
@@ -57,21 +71,14 @@ const Description = styled.p`
   }
 `;
 
-function Sidebar() {
-  const location = useLocation();
-
-  // Only show sidebar content on the News and Updates page in mobile view
-  const showSidebarContent = location.pathname === "/";
-
+function Sidebar({ isTop }) {
   return (
-    <SidebarContainer>
+    <SidebarContainer isTop={isTop}>
       <Photo src={myPhoto} alt="Sarath Babu" />
       <Name>Sarath Babu</Name>
-      {showSidebarContent && (
-        <Description>
-          Postdoctoral Researcher at IIT Bombay, specializing in network security and AI-powered adaptive cyber defense.
-        </Description>
-      )}
+      <Description>
+        Postdoctoral Researcher at IIT Bombay, specializing in network security and AI-powered adaptive cyber defense.
+      </Description>
     </SidebarContainer>
   );
 }

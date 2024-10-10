@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import myPhoto from "../assets/1234x.jpeg"; // Your photo
+import myPhoto from "../assets/1234x.jpeg"; // Add your photo in the assets folder
 
 const SidebarContainer = styled.div`
   width: 300px;
@@ -12,15 +12,6 @@ const SidebarContainer = styled.div`
   flex-direction: column;
   align-items: center;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Adjust height for mobile */
-    position: fixed; /* Fix position on mobile */
-    bottom: 0; /* Keep at bottom */
-    box-shadow: none; /* Remove shadow for mobile */
-    z-index: 999; /* Ensure the sidebar is above other elements */
-  }
 `;
 
 const Photo = styled.img`
@@ -29,37 +20,31 @@ const Photo = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+`;
 
-  @media (max-width: 768px) {
-    width: 120px;
-    height: 120px;
-  }
+const Name = styled.h3`
+  margin-top: 1rem;
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: #333;
 `;
 
 const AboutContainer = styled.div`
-  margin-top: 2rem; /* Space below the name */
+  margin-top: 2rem; /* Added small space below the name */
 `;
 
 const Heading = styled.h3`
   font-weight: bold;
   font-size: 1.5rem;
   color: #333;
-
-  @media (max-width: 768px) {
-    font-size: 1.2rem;
-  }
 `;
 
 const Description = styled.p`
-  text-align: justify; 
+  text-align: justify; /* Justify alignment for a clean, standard look */
   color: #555;
-  font-size: 0.95rem;
+  font-size: 0.95rem; /* Reduced font size */
   margin-top: 1rem;
   line-height: 1.6;
-
-  @media (max-width: 768px) {
-    font-size: 0.85rem;
-  }
 `;
 
 const Button = styled(Link)`
@@ -78,22 +63,19 @@ const Button = styled(Link)`
   }
 `;
 
-function Sidebar({ isVisible }) {
+function Sidebar() {
   return (
-    isVisible && ( // Render only if isVisible is true
-      <SidebarContainer>
-        <Photo src={myPhoto} alt="Sarath Babu" />
-        <AboutContainer>
-          <Heading>About Me</Heading>
-          <Description>
-            Hi, I am Sarath Babu, Postdoctoral Researcher at the Indian Institute of Technology Bombay. 
-            I completed my Ph.D. in Computer Science from the National Institute of Technology Calicut. 
-            My professional journey is driven by a deep commitment to advancing knowledge through research and teaching.
-          </Description>
-          <Button to="/About">LEARN MORE</Button>
-        </AboutContainer>
-      </SidebarContainer>
-    )
+    <SidebarContainer>
+      <Photo src={myPhoto} alt="Sarath Babu" />
+      <AboutContainer>
+        <Heading>About Me</Heading>
+        <Description>
+          Hi, I am Sarath Babu, Postdoctoral Researcher at the Indian Institute of Technology Bombay. I completed my Ph.D. in Computer Science from the National Institute of Technology Calicut. My professional journey is driven by a deep commitment to advancing knowledge through research and teaching.
+        </Description>
+        {/* "LEARN MORE" button linked to the About page */}
+        <Button to="/About">LEARN MORE</Button>
+      </AboutContainer>
+    </SidebarContainer>
   );
 }
 

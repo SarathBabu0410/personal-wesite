@@ -4,41 +4,26 @@ import myPhoto from "../assets/myPhoto.jpg"; // Add your photo in the assets fol
 
 // SidebarContainer with responsive design
 const SidebarContainer = styled.div`
-  width: 300px; /* Default width for larger screens */
-  padding: 2rem;
+  width: 100%; /* Full width for mobile to match the header */
+  padding: 1rem; /* Padding for the sidebar */
   background-color: #f8f8f8;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  z-index: 1; /* Ensure it's behind the navbar */
-
-  ${({ isTop }) =>
-    isTop &&
-    `
-    @media (max-width: 768px) {
-      width: 100%; /* Full width on mobile to match header */
-      height: auto; /* Auto height for mobile when at the top */
-      box-shadow: none;
-      z-index: 1; /* Ensure it's behind the navbar */
-      padding: 0.5rem; /* Reduce padding for smaller screens */
-    }
-  `}
-
-  @media (max-width: 768px) {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Allow the sidebar to auto-adjust its height */
-    padding: 0.5rem; /* Reduce padding */
-    margin-top: 0; /* Align it with the top of the screen */
-    box-shadow: none; /* Remove shadow in mobile view */
-    z-index: 1; /* Keep sidebar behind navbar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Add some margin for separation */
+  
+  @media (min-width: 769px) {
+    width: 300px; /* Default width for larger screens */
+    height: 100vh; /* Full height */
+    padding: 2rem; /* Padding for larger screens */
+    margin-top: 0; /* No margin on larger screens */
   }
 `;
 
 const Photo = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 120px; /* Adjusted for better fit */
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
@@ -67,13 +52,13 @@ const Description = styled.p`
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    font-size: 0.9rem; /* Adjust font size for mobile */
+    font-size: 1rem; /* Adjust font size for mobile */
   }
 `;
 
-function Sidebar({ isTop }) {
+function Sidebar() {
   return (
-    <SidebarContainer isTop={isTop}>
+    <SidebarContainer>
       <Photo src={myPhoto} alt="Sarath Babu" />
       <Name>Sarath Babu</Name>
       <Description>

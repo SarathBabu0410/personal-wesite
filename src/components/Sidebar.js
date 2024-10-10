@@ -1,97 +1,71 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import myPhoto from "../assets/1234x.jpeg"; // Your photo
+import myPhoto from "../assets/myPhoto.jpg"; // Add your photo in the assets folder
 
+// SidebarContainer with responsive design
 const SidebarContainer = styled.div`
-  width: 300px;
-  padding: 2rem;
+  width: 100%; /* Full width for mobile to match the header */
+  padding: 1rem; /* Padding for the sidebar */
   background-color: #f8f8f8;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-
-  @media (max-width: 768px) {
-    width: 100%; /* Full width on mobile */
-    height: auto; /* Adjust height for mobile */
-    position: ${(props) => (props.isNewsPage ? "relative" : "fixed")}; /* Position sidebar relative on News page, fixed on others */
-    bottom: ${(props) => (props.isNewsPage ? "auto" : "0")}; /* Keep at bottom unless it's news page */
-    box-shadow: none; /* Remove shadow for mobile */
-    z-index: 999; /* Ensure the sidebar is above other elements */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 20px; /* Add some margin for separation */
+  
+  @media (min-width: 769px) {
+    width: 300px; /* Default width for larger screens */
+    height: 100vh; /* Full height */
+    padding: 2rem; /* Padding for larger screens */
+    margin-top: 0; /* No margin on larger screens */
   }
 `;
 
 const Photo = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 120px; /* Adjusted for better fit */
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px; /* Reduce image size on smaller screens */
   }
 `;
 
-const AboutContainer = styled.div`
-  margin-top: 2rem; /* Space below the name */
-`;
-
-const Heading = styled.h3`
-  font-weight: bold;
+const Name = styled.h3`
   font-size: 1.5rem;
+  margin-bottom: 0.5rem;
   color: #333;
+  text-align: center; /* Center text */
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Adjust font size for mobile */
   }
 `;
 
 const Description = styled.p`
-  text-align: justify; 
+  text-align: center;
   color: #555;
-  font-size: 0.95rem;
-  margin-top: 1rem;
-  line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin-bottom: 1rem;
 
   @media (max-width: 768px) {
-    font-size: 0.85rem;
-  }
-`;
-
-const Button = styled(Link)`
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.5rem 1.5rem;
-  background-color: #f39c12;
-  color: white;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #e67e22;
+    font-size: 1rem; /* Adjust font size for mobile */
+    padding: 0 1rem; /* Add padding to prevent overflow */
   }
 `;
 
 function Sidebar() {
-  const location = useLocation(); // Get current location
-  const isNewsPage = location.pathname === "/"; // Check if the current page is News and Updates
-
   return (
-    <SidebarContainer isNewsPage={isNewsPage}>
+    <SidebarContainer>
       <Photo src={myPhoto} alt="Sarath Babu" />
-      <AboutContainer>
-        <Heading>About Me</Heading>
-        <Description>
-          Hi, I am Sarath Babu, Postdoctoral Researcher at the Indian Institute of Technology Bombay. I completed my Ph.D. in Computer Science from the National Institute of Technology Calicut. My professional journey is driven by a deep commitment to advancing knowledge through research and teaching.
-        </Description>
-        <Button to="/About">LEARN MORE</Button>
-      </AboutContainer>
+      <Name>Sarath Babu</Name>
+      <Description>
+        Postdoctoral Researcher at IIT Bombay, specializing in network security and AI-powered adaptive cyber defense.
+      </Description>
     </SidebarContainer>
   );
 }

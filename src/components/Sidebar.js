@@ -67,7 +67,6 @@ function Sidebar() {
   return (
     <SidebarContainer>
       <Photo src={myPhoto} alt="Sarath Babu" />
-      <Name>SARATH BABU</Name>
       <AboutContainer>
         <Heading>About Me</Heading>
         <Description>

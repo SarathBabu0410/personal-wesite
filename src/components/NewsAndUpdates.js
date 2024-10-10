@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled, { createGlobalStyle, keyframes } from "styled-components";
-import Sidebar from "./Sidebar"; // Import Sidebar
 
 // Global font import
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif; /* Apply the Lato font */
   }
 `;
 
@@ -25,46 +25,45 @@ const fadeIn = keyframes`
 // Container for the page
 const NewsContainer = styled.div`
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1200px; /* Maximum width for larger screens */
   margin: 0 auto;
-  display: flex;
-  flex-direction: column; /* Stack content vertically */
-  @media (max-width: 768px) {
-    padding-top: 80px; /* Add padding for navbar */
-  }
 `;
 
+// Box for the quotes section
 const QuoteBox = styled.div`
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
-  animation: ${fadeIn} 1s ease-out;
-  height: 33vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 1.5rem; /* Space between quotes and news box */
+  animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
+  height: 33vh; /* Take 1/3 of the viewport height */
+  display: flex; /* Center content vertically */
+  align-items: center; /* Align items in the center vertically */
+  justify-content: center; /* Center content horizontally */
 `;
 
 const QuoteText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.5rem; /* Larger font for quotes */
   font-style: italic;
-  color: #0077cc;
+  color: #0077cc; /* Change color for better visibility */
   text-align: center;
   margin: 0;
 `;
 
+// Header for the News and Updates section
 const Heading = styled.h1`
   text-align: center;
   color: #333;
   margin-bottom: 1.5rem;
+  font-family: 'Lato', sans-serif;
 `;
 
+// Card container for each news item
 const NewsCard = styled.div`
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background for news cards */
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  margin-bottom: 1.5rem; /* Space between cards */
 `;
 
 const NewsTitle = styled.h2`
@@ -113,13 +112,16 @@ const quotes = [
 ];
 
 const NewsAndUpdates = () => {
+  // State to hold the random quote
   const [randomQuote, setRandomQuote] = useState("");
 
+  // Function to get a random quote
   const getRandomQuote = () => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     setRandomQuote(quotes[randomIndex]);
   };
 
+  // Use effect to set a random quote on component mount
   useEffect(() => {
     getRandomQuote();
   }, []);
@@ -127,21 +129,24 @@ const NewsAndUpdates = () => {
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
-      {/* Sidebar appears at the top in mobile view */}
-      <Sidebar isTop />
+      {/* Quotes Section */}
       <QuoteBox>
         <QuoteText>{randomQuote}</QuoteText>
       </QuoteBox>
 
       <Heading>News and Updates</Heading>
 
-      {newsItems.map((item, index) => (
-        <NewsCard key={index}>
-          <NewsTitle>{item.title}</NewsTitle>
-          <NewsDescription>{item.description}</NewsDescription>
-          <NewsDate>{item.date}</NewsDate>
-        </NewsCard>
-      ))}
+      {newsItems.length > 0 ? ( // Check if there are news items
+        newsItems.map((item, index) => (
+          <NewsCard key={index}>
+            <NewsTitle>{item.title}</NewsTitle>
+            <NewsDescription>{item.description}</NewsDescription>
+            <NewsDate>{item.date}</NewsDate>
+          </NewsCard>
+        ))
+      ) : (
+        <p>No updates available at this time.</p> // Message if no news items
+      )}
     </NewsContainer>
   );
 };

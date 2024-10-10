@@ -38,6 +38,7 @@ const Name = styled.h3`
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
   color: #333;
+  text-align: center; /* Center text */
 
   @media (max-width: 768px) {
     font-size: 1.2rem; /* Adjust font size for mobile */
@@ -53,6 +54,7 @@ const Description = styled.p`
 
   @media (max-width: 768px) {
     font-size: 1rem; /* Adjust font size for mobile */
+    padding: 0 1rem; /* Add padding to prevent overflow */
   }
 `;
 

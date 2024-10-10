@@ -30,17 +30,13 @@ const ContentArea = styled.div`
 `;
 
 function App() {
-  const location = useLocation(); // Get current location
-  const isNewsPage = location.pathname === "/"; // Check if the current page is News and Updates
-
   return (
     <Router>
       <div className="App">
         <Header /> {/* Using the Header component */}
         <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
-          {/* Sidebar visible always in normal view, conditionally in mobile view */}
-          <Sidebar isVisible={isNewsPage || window.innerWidth > 768} />
+          <Sidebar /> {/* Sidebar remains on the side for all views */}
 
           {/* Define routes and content for each page */}
           <ContentArea>

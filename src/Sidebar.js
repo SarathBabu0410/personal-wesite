@@ -4,7 +4,7 @@ import myPhoto from "../assets/myPhoto.jpg"; // Add your photo in the assets fol
 
 // SidebarContainer with responsive design
 const SidebarContainer = styled.div`
-  width: 100%; /* Full width for mobile to match the header */
+  width: 80%; /* Full width for mobile to match the header */
   padding: 1rem; /* Padding for the sidebar */
   background-color: #f8f8f8;
   display: flex;

@@ -14,15 +14,19 @@ import styled from "styled-components";
 // Layout structure to include both the sidebar and the content
 const Layout = styled.div`
   display: flex;
+  flex-direction: row; /* Sidebar and content side by side in normal view */
+  width: 100%;
 
   @media (max-width: 768px) {
     flex-direction: column; /* Stack vertically on mobile */
   }
 `;
 
-const NewsAndUpdatesLayout = styled.div`
-  display: flex;
-  flex-direction: column; /* Sidebar on top for mobile view */
+// Main content area for each page
+const ContentArea = styled.div`
+  flex-grow: 1; /* Take up remaining space next to the sidebar */
+  padding: 2rem;
+  background-color: #ffffff; /* White background for content area */
 `;
 
 function App() {
@@ -32,64 +36,22 @@ function App() {
         <Header /> {/* Using the Header component */}
         <TitleUpdater /> {/* Dynamically updates the document title */}
         <Layout>
-          <Routes>
-            {/* News and Updates Page - Sidebar at the top in mobile */}
-            <Route 
-              path="/" 
-              element={
-                <NewsAndUpdatesLayout>
-                  <Sidebar isTop /> {/* Sidebar at the top for mobile view */}
-                  <NewsAndUpdates />
-                </NewsAndUpdatesLayout>
-              } 
-            />
-            {/* Other Pages - Sidebar on the side */}
-            <Route 
-              path="/about" 
-              element={
-                <>
-                  <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <About />
-                </>
-              } 
-            />
-            <Route 
-              path="/resume" 
-              element={
-                <>
-                  <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <Resume />
-                </>
-              } 
-            />
-            <Route 
-              path="/publications" 
-              element={
-                <>
-                  <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <Publications />
-                </>
-              } 
-            />
-            <Route 
-              path="/contact" 
-              element={
-                <>
-                  <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <Contact />
-                </>
-              } 
-            />
-            <Route 
-              path="/outreach" 
-              element={
-                <>
-                  <Sidebar /> {/* Sidebar on the side for other pages */}
-                  <OutreachActivities />
-                </>
-              } 
-            />
-          </Routes>
+          <Sidebar /> {/* Sidebar remains on the side for all views */}
+
+          {/* Define routes and content for each page */}
+          <ContentArea>
+            <Routes>
+              {/* News and Updates Page */}
+              <Route path="/" element={<NewsAndUpdates />} />
+              
+              {/* Other Pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/resume" element={<Resume />} />
+              <Route path="/publications" element={<Publications />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/outreach" element={<OutreachActivities />} />
+            </Routes>
+          </ContentArea>
         </Layout>
         <Footer /> {/* Using the Footer component */}
       </div>

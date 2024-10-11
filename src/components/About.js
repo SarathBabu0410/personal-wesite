@@ -110,6 +110,15 @@ function About() {
             My passion for research is reflected in my publications in leading journals and conferences. In addition to research and teaching, I have been actively involved in outreach activities, including organizing high-end workshops, contributing to syllabus preparation, and serving as a reviewer for leading journals and conferences. 
           </Paragraph>
         </Section>
+        <Section>
+          <SectionHeading>Research Interests</SectionHeading>
+          <LikesList>
+            <LikesListItem>Emerging Networks</LikesListItem>
+            <LikesListItem>Vehicular Adhoc networks</LikesListItem>
+            <LikesListItem>Network and System Security</LikesListItem>
+            <LikesListItem>Network on Chip</LikesListItem>
+          </LikesList>
+        </Section>
 
         {/* I Like Section */}
         <Section>

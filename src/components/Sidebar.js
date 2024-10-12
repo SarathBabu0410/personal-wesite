@@ -22,7 +22,7 @@ const SidebarContainer = styled.div`
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    width: 87vw; /* Full width on mobile */
+    width: 87.5vw; /* Full width on mobile */
     height: auto; /* Auto height for mobile */
     padding: 1rem; /* Reduce padding for mobile */
     box-shadow: none; /* Remove shadow for mobile */

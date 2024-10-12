@@ -9,7 +9,7 @@ import image2 from "../assets/images/image4.jpeg";
 import image3 from "../assets/images/image5.jpeg";
 
 // Sample array of images for the carousel
-const images = [image1, image2, image3];
+const images = [image1, image2, image3, image4, image5];
 
 const SidebarContainer = styled.div`
   width: 300px; /* Default width for larger screens */

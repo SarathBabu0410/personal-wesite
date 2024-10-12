@@ -46,21 +46,10 @@ const ActivityItem = styled.li`
   line-height: 1.6;
   color: #555;
   margin-bottom: 1rem;
-  position: relative; /* For animation */
-  padding-left: 1.5rem; /* Padding to create space for the bullet */
   
   /* Adding a custom bullet point */
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0.9rem; /* Adjust for vertical alignment */
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background-color: #f39c12; /* Color of the bullet */
-    animation: ${fadeIn} 0.5s ease-in; /* Animation for bullet */
-  }
+  list-style: disc; /* Default bullet point style */
+  padding-left: 1.5rem; /* Padding to create space for the bullet */
 `;
 
 const OutreachActivities = () => {

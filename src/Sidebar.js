@@ -5,6 +5,8 @@ import myPhoto from "../assets/1234x.jpeg"; // Your photo
 import image1 from "../assets/images/image1.jpeg"; // Import the images
 import image2 from "../assets/images/image2.jpeg";
 import image3 from "../assets/images/image3.jpeg";
+import image2 from "../assets/images/image4.jpeg";
+import image3 from "../assets/images/image5.jpeg";
 
 // Sample array of images for the carousel
 const images = [image1, image2, image3];

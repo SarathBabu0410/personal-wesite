@@ -5,8 +5,8 @@ import myPhoto from "../assets/1234x.jpeg"; // Your photo
 import image1 from "../assets/images/image1.jpeg"; // Import the images
 import image2 from "../assets/images/image2.jpeg";
 import image3 from "../assets/images/image3.jpeg";
-import image2 from "../assets/images/image4.jpeg";
-import image3 from "../assets/images/image5.jpeg";
+import image4 from "../assets/images/image4.jpeg";
+import image5 from "../assets/images/image5.jpeg";
 
 // Sample array of images for the carousel
 const images = [image1, image2, image3, image4, image5];
@@ -22,7 +22,7 @@ const SidebarContainer = styled.div`
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 768px) {
-    width: 100vw; /* Full width on mobile */
+    width: 88vw; /* Full width on mobile */
     height: auto; /* Auto height for mobile */
     padding: 1rem; /* Reduce padding for mobile */
     box-shadow: none; /* Remove shadow for mobile */

@@ -9,20 +9,29 @@ import orcidIcon from '../assets/orcid.png'; // Path to your ORCID icon
 const PubSection = styled.section`
   padding: 3rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: 1.5rem; /* Reduced padding on mobile */
+  }
 `;
 
 const ProfileLinks = styled.div`
   margin-bottom: 2rem;
   display: flex;
   justify-content: center; /* Center the icons horizontally */
+  flex-wrap: nowrap; /* Prevent wrapping to a new line */
 
   a {
-    margin: 0 1rem;
+    margin: 0 1rem; /* Space around each link */
     color: #007bff; /* Default color */
     text-decoration: none;
     font-weight: bold;
     display: flex;
     align-items: center;
+
+    @media (max-width: 768px) {
+      margin: 0 0.5rem; /* Reduce margin on mobile for better fitting */
+    }
   }
 
   a:hover {

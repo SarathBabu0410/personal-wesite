@@ -35,52 +35,81 @@ const slideIn = keyframes`
 
 const AboutContainer = styled.div`
   padding: 2rem;
-  width: 100%; /* Set width to 100% to cover the full visible region */
-  max-width: 1200px; /* Maximum width to keep the content readable */
-  margin: 0 auto; /* Center content on the page */
+  width: 100%;
+  max-width: 1200px; 
+  margin: 0 auto; /* Center content on desktop */
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    max-width: 100%; /* Increase width to 90% of the viewport width */
+    margin-left: auto; /* Ensure it's centered */
+    margin-right: auto; /* Ensure it's centered */
+  }
 `;
 
 const Heading = styled.h1`
-  text-align: center; /* Center the heading */
+  text-align: center;
   color: #333;
-  margin-bottom: 1.5rem; /* Space below the heading */
-  font-family: 'Lato', sans-serif; /* Apply the new font style to heading */
-  font-weight: 700; /* Use bold weight for the heading */
-  animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
+  margin-bottom: 1.5rem;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  animation: ${fadeIn} 1s ease-out;
+
+  @media (max-width: 768px) {
+    font-size: 1.8rem; /* Adjust font size for mobile */
+  }
 `;
 
 const Section = styled.div`
-  margin-bottom: 2rem; /* Space between sections */
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    margin-bottom: 1.5rem; /* Adjust margin for mobile */
+  }
 `;
 
 const SectionHeading = styled.h2`
   color: #333;
-  margin-bottom: 1rem; /* Space below the section heading */
-  font-family: 'Lato', sans-serif; /* Apply the new font style */
+  margin-bottom: 1rem;
+  font-family: 'Lato', sans-serif;
   animation: ${fadeIn} 1s ease-out;
+
+  @media (max-width: 768px) {
+    font-size: 1.6rem; /* Adjust heading size for mobile */
+  }
 `;
 
 const Paragraph = styled.p`
-  text-align: justify; /* Justify the paragraph text */
+  text-align: justify;
   color: #555;
-  font-size: 1.1rem; /* Font size */
-  line-height: 1.6; /* Line height for readability */
-  margin-bottom: 1rem; /* Space between paragraphs */
-  font-family: 'Lato', sans-serif; /* Apply the new font style */
-  animation: ${slideIn} 0.8s ease-out; /* Slide-in animation */
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-family: 'Lato', sans-serif;
+  animation: ${slideIn} 0.8s ease-out;
+
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Adjust font size for mobile */
+    line-height: 1.4; /* Adjust line height for mobile */
+  }
 `;
 
 const LikesList = styled.ul`
-  list-style-type: disc; /* Use disc bullets */
-  margin-left: 20px; /* Indent list */
+  list-style-type: disc;
+  margin-left: 20px;
   color: #555;
-  font-size: 1.1rem; /* Font size for the list */
-  font-family: 'Lato', sans-serif; /* Apply the new font style */
+  font-size: 1.1rem;
+  font-family: 'Lato', sans-serif;
+
+  @media (max-width: 768px) {
+    font-size: 1rem; /* Adjust font size for mobile */
+  }
 `;
 
 const LikesListItem = styled.li`
-  margin-bottom: 0.5rem; /* Increase space between items */
-  animation: ${slideIn} 0.8s ease-out; /* Slide-in animation */
+  margin-bottom: 0.5rem;
+  animation: ${slideIn} 0.8s ease-out;
   animation-delay: 0.3s;
 `;
 
@@ -89,12 +118,12 @@ function About() {
     <AboutContainer>
       <GlobalStyle /> {/* Apply global styles */}
       <Heading>About Me</Heading>
-      
+
       <ContentWrapper>
         {/* Introduction Section */}
         <Section>
           <SectionHeading>Introduction</SectionHeading>
-          <Paragraph>
+           <Paragraph>
             I am Sarath Babu, a dedicated researcher and educator with a background in computer science and engineering, particularly in the areas of network engineering, vehicular networks, and cybersecurity. I received my Ph.D. from the National Institute of Technology Calicut in 2023, where I focused on developing robust multicast routing protocols for vehicular ad-hoc networks (VANETs). My journey in research has always been driven by a passion for tackling complex problems in network security and communication technologies.
           </Paragraph>
           <Paragraph>
@@ -110,6 +139,7 @@ function About() {
             My passion for research is reflected in my publications in leading journals and conferences. In addition to research and teaching, I have been actively involved in outreach activities, including organizing high-end workshops, contributing to syllabus preparation, and serving as a reviewer for leading journals and conferences. 
           </Paragraph>
         </Section>
+
         <Section>
           <SectionHeading>Research Interests</SectionHeading>
           <LikesList>
@@ -120,7 +150,6 @@ function About() {
           </LikesList>
         </Section>
 
-        {/* I Like Section */}
         <Section>
           <SectionHeading>I Like</SectionHeading>
           <LikesList>

@@ -7,14 +7,19 @@ const ResumeContainer = styled.div`
   max-width: 800px;
   margin: 0 auto;
   font-family: 'Lato', sans-serif;
+
+  @media (max-width: 768px) {
+    padding: 1rem; /* Less padding on mobile */
+  }
 `;
 
 // Section headings
 const SectionHeading = styled.h2`
   color: #333;
-  margin-bottom: 0.5rem;
+  margin: 1.5rem 0 0.5rem; /* Adjusted margin for better spacing */
   border-bottom: 2px solid #f0f0f0;
   padding-bottom: 0.5rem;
+  font-size: 1.5rem; /* Adjusted font size */
 `;
 
 // List style for experiences, publications, etc.
@@ -24,18 +29,18 @@ const List = styled.ul`
   margin: 0;
 `;
 
-// List items for degrees (adjusted margin for education degrees)
+// List items for degrees
 const DegreeListItem = styled.li`
-  margin-bottom: 1rem; /* Reduced margin between degrees */
+  margin-bottom: 1rem; 
   padding: 1rem;
   border-radius: 4px;
   background-color: #f9f9f9;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 `;
 
-// List items for experiences (separate style for experiences)
+// List items for experiences
 const ListItem = styled.li`
-  margin-bottom: 2rem; /* Larger margin for experiences */
+  margin-bottom: 2rem; 
   padding: 1.5rem;
   border-radius: 4px;
   background-color: #f9f9f9;
@@ -235,7 +240,6 @@ const Resume = () => {
           </ProgressBarBackground>
         </SkillContainer>
       ))}
-
     </ResumeContainer>
   );
 };

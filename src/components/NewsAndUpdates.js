@@ -64,25 +64,12 @@ const NewsCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   margin-bottom: 1.5rem; /* Space between cards */
-  transition: transform 0.3s ease-in-out;
-  animation: ${fadeIn} 1s ease-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  /* Special styling for highlighted event (paper accepted) */
-  &.highlighted {
-    background-color: #e3f2fd; /* Light blue background */
-    border-left: 6px solid #3498db; /* Blue left border */
-  }
 `;
 
 const NewsTitle = styled.h2`
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #333;
   margin-bottom: 0.5rem;
-  font-weight: bold;
 `;
 
 const NewsDescription = styled.p`
@@ -98,16 +85,20 @@ const NewsDate = styled.p`
 
 // Sample news items
 const newsItems = [
+  // {
+  //   title: "New Research Project Launched",
+  //   description: "A new project focusing on AI and cybersecurity has been launched.",
+  //   date: "October 1, 2024",
+  // },
+  // {
+  //   title: "Workshop on Vehicular Networks",
+  //   description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
+  //   date: "October 5, 2024",
+  // },
   {
-    title: "Paper Accepted in Sinconf24 - Sidney, Australia",
+    title: "Papper accepted in Sinconf24 - Sidney AuAustralia",
     description: "Critical Behavior Sequence Monitoring for Early Malware Detection",
     date: "December 2, 2024",
-    highlighted: true, // Marked for special display
-  },
-  {
-    title: "New Research Project Launched",
-    description: "A new project focusing on AI and cybersecurity has been launched.",
-    date: "October 1, 2024",
   },
 ];
 

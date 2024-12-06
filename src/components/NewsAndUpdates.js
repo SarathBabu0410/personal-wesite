@@ -64,6 +64,18 @@ const NewsCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   margin-bottom: 1.5rem; /* Space between cards */
+  transition: transform 0.3s ease-in-out;
+  animation: ${fadeIn} 1s ease-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  /* Special styling for highlighted event (paper accepted) */
+  &.highlighted {
+    background-color: #e3f2fd; /* Light blue background */
+    border-left: 6px solid #3498db; /* Blue left border */
+  }
 `;
 
 const NewsTitle = styled.h2`

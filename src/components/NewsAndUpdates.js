@@ -96,7 +96,7 @@ const newsItems = [
   //   date: "October 5, 2024",
   // },
   {
-    title: "Papper tittled: "Critical Behavior Sequence Monitoring for Early Malware Detection" accepted in Sinconf24 - Sidney AuAustralia",
+    title: "Papper tittled: Critical Behavior Sequence Monitoring for Early Malware Detection, accepted in Sinconf24 - Sidney AuAustralia",
     description: "",
     date: "December 2, 2024",
   },

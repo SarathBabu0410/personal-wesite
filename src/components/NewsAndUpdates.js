@@ -33,23 +33,20 @@ const NewsContainer = styled.div`
 const QuoteBox = styled.div`
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 2rem; /* Space between quotes and news box */
+  margin-bottom: 1.5rem; /* Space between quotes and news box */
   animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
-  background-color: #f1f1f1; /* Light background for quotes section */
-  display: flex;
-  flex-direction: column; /* Align quotes vertically */
-  align-items: center; /* Center items horizontally */
+  height: 33vh; /* Take 1/3 of the viewport height */
+  display: flex; /* Center content vertically */
+  align-items: center; /* Align items in the center vertically */
   justify-content: center; /* Center content horizontally */
 `;
 
 const QuoteText = styled.p`
-  font-size: 1.2rem; /* Slightly smaller font for quotes */
+  font-size: 1.5rem; /* Larger font for quotes */
   font-style: italic;
-  color: #0077cc; /* Blue color for better visibility */
+  color: #0077cc; /* Change color for better visibility */
   text-align: center;
-  margin: 1rem 0; /* Space between quotes */
-  max-width: 900px; /* Limit width for readability */
-  line-height: 1.6; /* Line spacing for clarity */
+  margin: 0;
 `;
 
 // Header for the News and Updates section
@@ -162,29 +159,40 @@ const quotes = [
 ];
 
 const NewsAndUpdates = () => {
+  // State to hold the random quote
+  const [randomQuote, setRandomQuote] = useState("");
+
+  // Function to get a random quote
+  const getRandomQuote = () => {
+    const randomIndex = Math.floor(Math.random() * quotes.length);
+    setRandomQuote(quotes[randomIndex]);
+  };
+
+  // Use effect to set a random quote on component mount
+  useEffect(() => {
+    getRandomQuote();
+  }, []);
+
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
-
       {/* Quotes Section */}
       <QuoteBox>
-        {quotes.map((quote, index) => (
-          <QuoteText key={index}>{quote}</QuoteText>
-        ))}
+        <QuoteText>{randomQuote}</QuoteText>
       </QuoteBox>
 
       <Heading>News and Updates</Heading>
 
-      {newsItems.length > 0 ? (
+      {newsItems.length > 0 ? ( // Check if there are news items
         newsItems.map((item, index) => (
-          <NewsCard key={index} className={item.highlighted ? "highlighted" : ""}>
+          <NewsCard key={index}>
             <NewsTitle>{item.title}</NewsTitle>
             <NewsDescription>{item.description}</NewsDescription>
             <NewsDate>{item.date}</NewsDate>
           </NewsCard>
         ))
       ) : (
-        <p>No updates available at this time.</p>
+        <p>No updates available at this time.</p> // Message if no news items
       )}
     </NewsContainer>
   );

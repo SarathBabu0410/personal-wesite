@@ -57,7 +57,7 @@ const Nav = styled.nav`
       right: 0;
       width: 100%; /* Full width for mobile */
       background-color: rgba(51, 51, 51, 0.9);
-      padding: 1rem 0;
+      %padding: 1rem 0;
       z-index: 10;
     }
 

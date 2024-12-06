@@ -4,9 +4,9 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 // Global font import
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
+  
   body {
-    font-family: 'Lato', sans-serif; /* Apply the Lato font */
+    font-family: 'Lato', sans-serif;
   }
 `;
 
@@ -14,37 +14,43 @@ const GlobalStyle = createGlobalStyle`
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px); /* Slide-in from below */
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translateY(0); /* Final position */
+    transform: translateY(0);
   }
 `;
 
 // Container for the page
 const NewsContainer = styled.div`
   padding: 2rem;
-  max-width: 1200px; /* Maximum width for larger screens */
+  max-width: 1200px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 // Box for the quotes section
 const QuoteBox = styled.div`
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem; /* Space between quotes and news box */
-  animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
-  height: 33vh; /* Take 1/3 of the viewport height */
-  display: flex; /* Center content vertically */
-  align-items: center; /* Align items in the center vertically */
-  justify-content: center; /* Center content horizontally */
+  margin-bottom: 1.5rem;
+  animation: ${fadeIn} 1s ease-out;
+  height: 33vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f8ff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 const QuoteText = styled.p`
-  font-size: 1.5rem; /* Larger font for quotes */
+  font-size: 1.5rem;
   font-style: italic;
-  color: #0077cc; /* Change color for better visibility */
+  color: #0077cc;
   text-align: center;
   margin: 0;
 `;
@@ -54,16 +60,30 @@ const Heading = styled.h1`
   text-align: center;
   color: #333;
   margin-bottom: 1.5rem;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
 `;
 
 // Card container for each news item
 const NewsCard = styled.div`
-  background-color: #ffffff; /* White background for news cards */
+  background-color: #ffffff;
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-  margin-bottom: 1.5rem; /* Space between cards */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
 `;
 
 const NewsTitle = styled.h2`
@@ -74,7 +94,8 @@ const NewsTitle = styled.h2`
 
 const NewsDescription = styled.p`
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-size: 1.1rem;
 `;
 
 const NewsDate = styled.p`
@@ -85,20 +106,20 @@ const NewsDate = styled.p`
 
 // Sample news items
 const newsItems = [
-  // {
-  //   title: "New Research Project Launched",
-  //   description: "A new project focusing on AI and cybersecurity has been launched.",
-  //   date: "October 1, 2024",
-  // },
-  // {
-  //   title: "Workshop on Vehicular Networks",
-  //   description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
-  //   date: "October 5, 2024",
-  // },
   {
-    title: "Papper accepted in Sinconf24 - Sidney AuAustralia",
+    title: "Paper Accepted in Sinconf24 - Sidney, Australia",
     description: "Critical Behavior Sequence Monitoring for Early Malware Detection",
     date: "December 2, 2024",
+  },
+  {
+    title: "New Research Project Launched on AI and Cybersecurity",
+    description: "A new research project focusing on AI techniques to enhance cybersecurity.",
+    date: "November 15, 2024",
+  },
+  {
+    title: "Workshop on Vehicular Networks Held Successfully",
+    description: "In-depth workshop conducted on the latest advancements in vehicular networks.",
+    date: "October 10, 2024",
   },
 ];
 
@@ -133,7 +154,7 @@ const quotes = [
   "A true leader always keeps an element of surprise up his sleeve, which others cannot grasp but which keeps his public excited and breathless ~ Charles de Gaulle",
   "Surprise is the greatest gift which life can grant us ~ Boris Pasternak",
   "Less isn't more; just enough is more ~ Milton Glaser",
-  "Simplicity is the ultimate sophistication ~ Leonardo daVinci",
+  "Simplicity is the ultimate sophistication ~ Leonardo da Vinci",
   "I would maintain that thanks are the highest form of thought, and that gratitude is happiness doubled by wonder ~ Gilbert K Chesterton",
   "The essence of all beautiful art, all great art, is gratitude ~ Friedrich Nietzsche",
   "Management is doing things right; leadership is doing the right things ~ Peter F. Drucker",
@@ -149,8 +170,8 @@ const quotes = [
   "Better an end with horror, than a horror without end ~ German proverb",
 ];
 
+// News and Updates Component
 const NewsAndUpdates = () => {
-  // State to hold the random quote
   const [randomQuote, setRandomQuote] = useState("");
 
   // Function to get a random quote
@@ -167,14 +188,16 @@ const NewsAndUpdates = () => {
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
-      {/* Quotes Section */}
+      
+      {/* Quote Box Section */}
       <QuoteBox>
         <QuoteText>{randomQuote}</QuoteText>
       </QuoteBox>
 
       <Heading>News and Updates</Heading>
 
-      {newsItems.length > 0 ? ( // Check if there are news items
+      {/* News Cards */}
+      {newsItems.length > 0 ? (
         newsItems.map((item, index) => (
           <NewsCard key={index}>
             <NewsTitle>{item.title}</NewsTitle>
@@ -183,7 +206,7 @@ const NewsAndUpdates = () => {
           </NewsCard>
         ))
       ) : (
-        <p>No updates available at this time.</p> // Message if no news items
+        <p>No updates available at this time.</p>
       )}
     </NewsContainer>
   );

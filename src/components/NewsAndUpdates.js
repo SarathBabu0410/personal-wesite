@@ -64,22 +64,10 @@ const NewsCard = styled.div`
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   margin-bottom: 1.5rem; /* Space between cards */
-  transition: transform 0.3s ease-in-out;
-  animation: ${fadeIn} 1s ease-out;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  /* Special styling for highlighted event (paper accepted) */
-  &.highlighted {
-    background-color: #e3f2fd; /* Light blue background */
-    border-left: 6px solid #3498db; /* Blue left border */
-  }
 `;
 
 const NewsTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: #333;
   margin-bottom: 0.5rem;
 `;
@@ -108,8 +96,8 @@ const newsItems = [
   //   date: "October 5, 2024",
   // },
   {
-    title: "Papper accepted in Sinconf24 - Sidney AuAustralia",
-    description: "Critical Behavior Sequence Monitoring for Early Malware Detection",
+    title: "Papper tittled: "Critical Behavior Sequence Monitoring for Early Malware Detection" accepted in Sinconf24 - Sidney AuAustralia",
+    description: "",
     date: "December 2, 2024",
   },
 ];

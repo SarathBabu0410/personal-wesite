@@ -4,9 +4,9 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 // Global font import
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-  
+
   body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Lato', sans-serif; /* Apply the Lato font */
   }
 `;
 
@@ -14,45 +14,41 @@ const GlobalStyle = createGlobalStyle`
 const fadeIn = keyframes`
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(20px); /* Slide-in from below */
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0); /* Final position */
   }
 `;
 
 // Container for the page
 const NewsContainer = styled.div`
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1200px; /* Maximum width for larger screens */
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    padding: 1rem;
-  }
 `;
 
 // Box for the quotes section
 const QuoteBox = styled.div`
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem;
-  animation: ${fadeIn} 1s ease-out;
-  height: 33vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #f0f8ff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem; /* Space between quotes and news box */
+  animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
+  height: auto; /* Dynamic height to fit all quotes */
+  display: flex; /* Center content vertically */
+  flex-direction: column; /* Align quotes vertically */
+  align-items: center; /* Align items in the center vertically */
+  justify-content: center; /* Center content horizontally */
+  background-color: #f1f1f1; /* Light background for quotes section */
 `;
 
 const QuoteText = styled.p`
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* Slightly smaller font for quotes */
   font-style: italic;
-  color: #0077cc;
+  color: #0077cc; /* Change color for better visibility */
   text-align: center;
-  margin: 0;
+  margin: 0.5rem 0; /* Space between quotes */
 `;
 
 // Header for the News and Updates section
@@ -60,42 +56,40 @@ const Heading = styled.h1`
   text-align: center;
   color: #333;
   margin-bottom: 1.5rem;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-
-  @media (max-width: 768px) {
-    font-size: 2rem;
-  }
+  font-family: 'Lato', sans-serif;
 `;
 
 // Card container for each news item
 const NewsCard = styled.div`
-  background-color: #ffffff;
+  background-color: #ffffff; /* White background for news cards */
   padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  margin-bottom: 1.5rem; /* Space between cards */
   transition: transform 0.3s ease-in-out;
+  animation: ${fadeIn} 1s ease-out;
 
   &:hover {
     transform: scale(1.05);
   }
 
-  @media (max-width: 768px) {
-    padding: 1rem;
+  /* Special styling for highlighted event (paper accepted) */
+  &.highlighted {
+    background-color: #e3f2fd; /* Light blue background */
+    border-left: 6px solid #3498db; /* Blue left border */
   }
 `;
 
 const NewsTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #333;
   margin-bottom: 0.5rem;
+  font-weight: bold;
 `;
 
 const NewsDescription = styled.p`
   color: #555;
-  line-height: 1.6;
-  font-size: 1.1rem;
+  line-height: 1.5;
 `;
 
 const NewsDate = styled.p`
@@ -110,16 +104,12 @@ const newsItems = [
     title: "Paper Accepted in Sinconf24 - Sidney, Australia",
     description: "Critical Behavior Sequence Monitoring for Early Malware Detection",
     date: "December 2, 2024",
+    highlighted: true, // Marked for special display
   },
   {
-    title: "New Research Project Launched on AI and Cybersecurity",
-    description: "A new research project focusing on AI techniques to enhance cybersecurity.",
-    date: "November 15, 2024",
-  },
-  {
-    title: "Workshop on Vehicular Networks Held Successfully",
-    description: "In-depth workshop conducted on the latest advancements in vehicular networks.",
-    date: "October 10, 2024",
+    title: "New Research Project Launched",
+    description: "A new project focusing on AI and cybersecurity has been launched.",
+    date: "October 1, 2024",
   },
 ];
 
@@ -154,7 +144,7 @@ const quotes = [
   "A true leader always keeps an element of surprise up his sleeve, which others cannot grasp but which keeps his public excited and breathless ~ Charles de Gaulle",
   "Surprise is the greatest gift which life can grant us ~ Boris Pasternak",
   "Less isn't more; just enough is more ~ Milton Glaser",
-  "Simplicity is the ultimate sophistication ~ Leonardo da Vinci",
+  "Simplicity is the ultimate sophistication ~ Leonardo daVinci",
   "I would maintain that thanks are the highest form of thought, and that gratitude is happiness doubled by wonder ~ Gilbert K Chesterton",
   "The essence of all beautiful art, all great art, is gratitude ~ Friedrich Nietzsche",
   "Management is doing things right; leadership is doing the right things ~ Peter F. Drucker",
@@ -170,36 +160,23 @@ const quotes = [
   "Better an end with horror, than a horror without end ~ German proverb",
 ];
 
-// News and Updates Component
 const NewsAndUpdates = () => {
-  const [randomQuote, setRandomQuote] = useState("");
-
-  // Function to get a random quote
-  const getRandomQuote = () => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setRandomQuote(quotes[randomIndex]);
-  };
-
-  // Use effect to set a random quote on component mount
-  useEffect(() => {
-    getRandomQuote();
-  }, []);
-
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
-      
-      {/* Quote Box Section */}
+
+      {/* Quotes Section */}
       <QuoteBox>
-        <QuoteText>{randomQuote}</QuoteText>
+        {quotes.map((quote, index) => (
+          <QuoteText key={index}>{quote}</QuoteText>
+        ))}
       </QuoteBox>
 
       <Heading>News and Updates</Heading>
 
-      {/* News Cards */}
       {newsItems.length > 0 ? (
         newsItems.map((item, index) => (
-          <NewsCard key={index}>
+          <NewsCard key={index} className={item.highlighted ? "highlighted" : ""}>
             <NewsTitle>{item.title}</NewsTitle>
             <NewsDescription>{item.description}</NewsDescription>
             <NewsDate>{item.date}</NewsDate>

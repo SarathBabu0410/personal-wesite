@@ -85,20 +85,20 @@ const NewsDate = styled.p`
 
 // Sample news items
 const newsItems = [
+  // {
+  //   title: "New Research Project Launched",
+  //   description: "A new project focusing on AI and cybersecurity has been launched.",
+  //   date: "October 1, 2024",
+  // },
+  // {
+  //   title: "Workshop on Vehicular Networks",
+  //   description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
+  //   date: "October 5, 2024",
+  // },
   {
-    title: "New Research Project Launched",
-    description: "A new project focusing on AI and cybersecurity has been launched.",
-    date: "October 1, 2024",
-  },
-  {
-    title: "Workshop on Vehicular Networks",
-    description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
-    date: "October 5, 2024",
-  },
-  {
-    title: "Publication in Leading Journal",
-    description: "A recent paper has been accepted for publication in a leading journal.",
-    date: "October 7, 2024",
+    title: "Papper accepted in Sinconf24 - Sidney AuAustralia",
+    description: "Critical Behavior Sequence Monitoring for Early Malware Detection",
+    date: "December 2, 2024",
   },
 ];
 

@@ -33,22 +33,23 @@ const NewsContainer = styled.div`
 const QuoteBox = styled.div`
   padding: 2rem;
   border-radius: 8px;
-  margin-bottom: 1.5rem; /* Space between quotes and news box */
+  margin-bottom: 2rem; /* Space between quotes and news box */
   animation: ${fadeIn} 1s ease-out; /* Fade-in animation */
-  height: auto; /* Dynamic height to fit all quotes */
-  display: flex; /* Center content vertically */
-  flex-direction: column; /* Align quotes vertically */
-  align-items: center; /* Align items in the center vertically */
-  justify-content: center; /* Center content horizontally */
   background-color: #f1f1f1; /* Light background for quotes section */
+  display: flex;
+  flex-direction: column; /* Align quotes vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center content horizontally */
 `;
 
 const QuoteText = styled.p`
   font-size: 1.2rem; /* Slightly smaller font for quotes */
   font-style: italic;
-  color: #0077cc; /* Change color for better visibility */
+  color: #0077cc; /* Blue color for better visibility */
   text-align: center;
-  margin: 0.5rem 0; /* Space between quotes */
+  margin: 1rem 0; /* Space between quotes */
+  max-width: 900px; /* Limit width for readability */
+  line-height: 1.6; /* Line spacing for clarity */
 `;
 
 // Header for the News and Updates section

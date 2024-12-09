@@ -223,7 +223,7 @@ function Contact() {
             </IconLink>
           </SocialMediaContainer>
           <p>You can email me at:</p>
-          <EmailLink href="mailto:sarathbabu0410@gmail.com">
+          <EmailLink href="mailto:sarathbabuiitb@gmail.com">
             <EmailIcon icon={faEnvelope} />
             sarathbabu0410@gmail.com
           </EmailLink>

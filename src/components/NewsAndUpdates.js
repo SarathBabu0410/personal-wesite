@@ -37,23 +37,6 @@ const NewsContainer = styled.div`
   }
 `;
 
-// Box for the quotes section
-const QuoteBox = styled.div`
-  padding: 2rem;
-  background-color: #0077cc; /* Subtle blue background */
-  color: #fff;
-  border-radius: 8px;
-  margin-bottom: 2rem;
-  animation: ${fadeIn} 1.5s ease-out; /* Fade-in animation */
-  text-align: center;
-`;
-
-const QuoteText = styled.p`
-  font-size: 1.3rem;
-  font-style: italic;
-  line-height: 1.6;
-`;
-
 // Header for the News and Updates section
 const Heading = styled.h1`
   text-align: center;
@@ -74,6 +57,7 @@ const NewsCard = styled.div`
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
   margin-bottom: 2rem; /* Space between cards */
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth hover effect */
+  background: linear-gradient(to right, #f2f2f2, #ffffff); /* Subtle gradient background */
 
   &:hover {
     transform: translateY(-10px); /* Lift the card on hover */
@@ -82,7 +66,7 @@ const NewsCard = styled.div`
 `;
 
 const NewsTitle = styled.h2`
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
   color: #333;
   margin-bottom: 1rem;
@@ -112,7 +96,7 @@ const newsItems = [
   },
 ];
 
-// Array of quotes
+// Array of quotes (no changes here)
 const quotes = [
   "Research is what I'm doing when I don't know what I'm doing. - Wernher von Braun",
   "The best way to predict the future is to invent it. - Alan Kay",

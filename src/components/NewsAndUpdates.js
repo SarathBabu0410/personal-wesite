@@ -4,7 +4,6 @@ import styled, { createGlobalStyle, keyframes } from "styled-components";
 // Global font import
 const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
-
   body {
     font-family: 'Lato', sans-serif; /* Apply the Lato font */
   }
@@ -27,6 +26,9 @@ const NewsContainer = styled.div`
   padding: 2rem;
   max-width: 1200px; /* Maximum width for larger screens */
   margin: 0 auto;
+  @media (max-width: 768px) {
+    padding: 1rem; /* Reduced padding for mobile */
+  }
 `;
 
 // Box for the quotes section
@@ -53,51 +55,54 @@ const QuoteText = styled.p`
 const Heading = styled.h1`
   text-align: center;
   color: #333;
-  margin-bottom: 1.5rem;
-  font-family: 'Lato', sans-serif;
+  margin-bottom: 2rem; /* Add space below the heading */
+  font-size: 2.5rem;
+  font-weight: 700;
+  animation: ${fadeIn} 1s ease-out;
 `;
 
 // Card container for each news item
 const NewsCard = styled.div`
   background-color: #ffffff; /* White background for news cards */
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
-  margin-bottom: 1.5rem; /* Space between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for cards */
+  margin-bottom: 2rem; /* Space between cards */
+  animation: ${fadeIn} 1s ease-out;
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+    transition: 0.3s ease-in-out;
+  }
 `;
 
 const NewsTitle = styled.h2`
-  font-size: 1.2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
   color: #333;
   margin-bottom: 0.5rem;
+  text-transform: capitalize;
 `;
 
 const NewsDescription = styled.p`
+  font-size: 1.1rem;
   color: #555;
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-style: italic;
 `;
 
 const NewsDate = styled.p`
   font-size: 0.9rem;
-  color: #999;
+  color: #888;
   margin-top: 0.5rem;
 `;
 
 // Sample news items
 const newsItems = [
-  // {
-  //   title: "New Research Project Launched",
-  //   description: "A new project focusing on AI and cybersecurity has been launched.",
-  //   date: "October 1, 2024",
-  // },
-  // {
-  //   title: "Workshop on Vehicular Networks",
-  //   description: "Join us for an in-depth workshop on the latest in vehicular network technology.",
-  //   date: "October 5, 2024",
-  // },
   {
-    title: "Papper tittled: Critical Behavior Sequence Monitoring for Early Malware Detection, accepted in Sinconf24 - Sidney Australia",
-    description: "",
+    title: "Paper titled: Critical Behavior Sequence Monitoring for Early Malware Detection, accepted in Sinconf24 - Sidney, Australia",
+    description: "This paper focuses on enhancing malware detection techniques using behavior analysis. It was accepted for presentation at the Sinconf24 conference in Sidney, Australia.",
     date: "December 2, 2024",
   },
 ];
@@ -146,7 +151,7 @@ const quotes = [
   "I hear and I forget. I see and I remember. I do and I understand ~ Confucius",
   "Fair is foul and foul is fair ~ Shakespeare, Macbeth",
   "I wasted time and now doth time waste me ~ William Shakespeare",
-  "Better an end with horror, than a horror without end ~ German proverb",
+  "Better an end with horror, than a horror without end ~ German proverb",  
 ];
 
 const NewsAndUpdates = () => {
@@ -167,6 +172,7 @@ const NewsAndUpdates = () => {
   return (
     <NewsContainer>
       <GlobalStyle /> {/* Apply global styles */}
+
       {/* Quotes Section */}
       <QuoteBox>
         <QuoteText>{randomQuote}</QuoteText>
@@ -174,7 +180,7 @@ const NewsAndUpdates = () => {
 
       <Heading>News and Updates</Heading>
 
-      {newsItems.length > 0 ? ( // Check if there are news items
+      {newsItems.length > 0 ? (
         newsItems.map((item, index) => (
           <NewsCard key={index}>
             <NewsTitle>{item.title}</NewsTitle>
@@ -183,7 +189,7 @@ const NewsAndUpdates = () => {
           </NewsCard>
         ))
       ) : (
-        <p>No updates available at this time.</p> // Message if no news items
+        <p>No updates available at this time.</p>
       )}
     </NewsContainer>
   );
